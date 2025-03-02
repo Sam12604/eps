@@ -15,25 +15,50 @@ document.addEventListener('click', (event) => {
   }
 });
 
-// Carousel Functionality
-let currentIndex = 0;
-const items = document.querySelectorAll('.carousel-item');
-const totalItems = items.length;
+// // Carousel Functionality
+// let currentIndex = 0;
+// const items = document.querySelectorAll('.carousel-item');
+// const totalItems = items.length;
 
-function showNextItem() {
-  items[currentIndex].classList.remove('active');
-  currentIndex = (currentIndex + 1) % totalItems;
-  items[currentIndex].classList.add('active');
+// function showNextItem() {
+//   items[currentIndex].classList.remove('active');
+//   currentIndex = (currentIndex + 1) % totalItems;
+//   items[currentIndex].classList.add('active');
+// }
+
+// function showPrevItem() {
+//   items[currentIndex].classList.remove('active');
+//   currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+//   items[currentIndex].classList.add('active');
+// }
+
+// document.querySelector('.carousel-next').addEventListener('click', showNextItem);
+// document.querySelector('.carousel-prev').addEventListener('click', showPrevItem);
+
+// // Auto-rotate carousel every 5 seconds
+// setInterval(showNextItem, 5000);
+
+//Testimony script
+currentTestimony = 0;
+const reviews = document.getElementsByClassName('review');
+
+function nextReview() {
+  for (let i = 0; i < reviews.length; i++) {
+    if (i == currentTestimony) {
+      reviews[i].setAttribute('style', 'display: block');
+    } else {
+      reviews[i].setAttribute('style', 'display: none');
+    }
+  }
+
+  currentTestimony++;
+  if (currentTestimony >= reviews.length) {
+    currentTestimony = 0; // Loop back to the first review
+  }
 }
 
-function showPrevItem() {
-  items[currentIndex].classList.remove('active');
-  currentIndex = (currentIndex - 1 + totalItems) % totalItems;
-  items[currentIndex].classList.add('active');
-}
+document.querySelector('#reviews').addEventListener('click', nextReview);
 
-document.querySelector('.carousel-next').addEventListener('click', showNextItem);
-document.querySelector('.carousel-prev').addEventListener('click', showPrevItem);
 
-// Auto-rotate carousel every 5 seconds
-setInterval(showNextItem, 5000);
+nextReview()
+setInterval(nextReview, 25000);

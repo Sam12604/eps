@@ -273,4 +273,5 @@
 
   .review {
     transition: 0.2s opacity;
+    cursor: pointer;
   }

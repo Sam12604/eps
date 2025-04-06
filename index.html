@@ -121,7 +121,7 @@
     <nav class="nav">
         <ul>
         <!-- <li><a href="#reviews"><i class="fas fa-arrow-circle-right" style="margin-right: 5px;"></i>Reviews</a></li> -->
-        <li><a href="#pricing"><i class="fas fa-arrow-circle-right" style="margin-right: 5px;"></i>Pricing</a></li>
+        <li><a href="#services"><i class="fas fa-arrow-circle-right" style="margin-right: 5px;"></i>Services</a></li>
         <li><a href="#downloads"><i class="fas fa-arrow-circle-right" style="margin-right: 5px;"></i>Downloads</a></li>
         <li><a href="#contact"><i class="fas fa-arrow-circle-right" style="margin-right: 5px;"></i>Contact</a></li>
         </ul>
@@ -131,7 +131,7 @@
     <!-- Hero Section -->
     <section class="hero" style="background:linear-gradient(rgba(245, 245, 245, 0.6), rgba(245, 245, 245, 0.6)), url('gravesend-sitter-cover.jpg'); background-size: cover; background-position: right center;">
     <h1>Where tails are always wagging</h1>
-    <p style="padding-bottom: 20px;">Professional pet sitting & walking with love and care in and around Gravesend, Kent</p>
+    <h2 style="padding-bottom: 20px; font-weight: normal;">Professional pet sitting & walking with love and care in and around Gravesend, Kent</h2>
     <a href="#contact" class="cta-button">Enquire Now</a>
     </section>
 
@@ -140,18 +140,18 @@
     <!-- About Section -->
     <section id="about" class="contact">
         <h2>What I offer</h2>
-        <p>🌟 Fully Insured</p>
-        <p>🌟 DBS Checked</p>
 
-
-        <p>As a trustworthy and passionate pet sitter, I provide a variety of services such as dog walking, pet sitting, and drop-in visits to make sure your pets receive the care they need while you're away. My genuine love for animals drives me to give them the attention and affection they deserve.  Whether you need a midday walk, an overnight stay, or just a quick check-in, I will make sure your pets feel safe, happy, and loved.</p>
-
-        <p>I am fully insured and DBS checked, giving you peace of mind that your pets and home are in good hands. I recognise how much your pets mean to you, and I treat every furry companion as if they were my own.</p>
+        <p>As a trustworthy and passionate pet sitter, I provide a variety of services such as dog walking, pet sitting, and drop-in visits to make sure your pets receive the care they need while you're away.
+            <br>
+            My genuine love for animals drives me to give them the attention and affection they deserve.  Whether you need a midday walk, an overnight stay, or just a quick check-in, I will make sure your pets feel safe, happy, and loved.
+            <br>
+            I am fully insured and DBS checked, giving you peace of mind that your pets and home are in good hands. I recognise how much your pets mean to you, and I treat every furry companion as if they were my own.
+        </p>
     </section>
 
 
-    <!-- Pricing Section -->
-    <section id="pricing" class="pricing">
+    <!-- Services Section -->
+    <section id="services" class="pricing">
     <h2>Services</h2>
         <h3>Overnight Dog Sitting -</h3>
         <p>
@@ -312,18 +312,20 @@
 
     <!-- Footer -->
     <footer>
-    <div class="footer-content">
-        <p>Erin's Pet Sitting 2025 &copy;. All rights reserved.</p>
-
-        <div class="social-links">
-            <a href="https://www.facebook.com/people/Erins-Pet-Sitting-Services/61560319745772"><i class="fab fa-facebook"></i></a>
-            <a href="https://m.me/61560319745772?ref=.COM REFERAL"><i class="fab fa-facebook-messenger"></i></a>
-            <!-- <a href="#"><i class="fab fa-instagram"></i></a> -->
-            <!-- <a href="#"><i class="fab fa-tiktok"></i></a> -->
+        <div class="footer-content">
+            <p>&copy; <span id="year"></span> Erin's Pet Sitting. All rights reserved.</p>
+        
+            <div class="social-links">
+            <a href="https://www.facebook.com/people/Erins-Pet-Sitting-Services/61560319745772" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://m.me/61560319745772" aria-label="Messenger"><i class="fab fa-facebook-messenger"></i></a>
+            </div>
         </div>
-    </form>
-    </div>
+        
+        <script>
+            document.getElementById("year").textContent = new Date().getFullYear();
+        </script>
     </footer>
+      
 
     <script src="script.js?v020325"></script>
     </body>

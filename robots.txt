@@ -1,2 +1,4 @@
 User-agent: *
 Disallow:
+
+Sitemap: https://erinspetsittingservices.co.uk/sitemap.xml

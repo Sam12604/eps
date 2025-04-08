@@ -3,7 +3,7 @@
     <!-- Homepage -->
     <url>
         <loc>https://erinspetsittingservices.co.uk/</loc>
-        <lastmod>2025-03-01</lastmod>
+        <lastmod>2025-04-08</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
@@ -12,6 +12,13 @@
     <url>
         <loc>https://erinspetsittingservices.co.uk/downloads/proofofinsurance.pdf</loc>
         <lastmod>2025-03-01</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://erinspetsittingservices.co.uk/downloads/firstaid.pdf</loc>
+        <lastmod>2025-04-08</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.8</priority>
     </url>

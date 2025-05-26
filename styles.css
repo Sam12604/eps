@@ -216,14 +216,13 @@
   }
   
   form {
-    max-width: 400px;
     margin: 0 auto;
   }
   
   input, textarea {
     max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
+    /* margin-left: auto;
+    margin-right: auto; */
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;

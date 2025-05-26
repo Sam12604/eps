@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="canonical" href="https://erinspetsittingservices.co.uk/"> -->
+  <title>Dog Walking Form | Erin's Pet Sitting</title>
+
+  <link rel="icon" type="image/x-icon" href="/erins-pet-sitting-services.jpg">
+
+  <link rel="stylesheet" href="/styles.css?020325">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap" rel="stylesheet">
+
+  <link itemprop="url" href="https://erinspetsittingservices.co.uk/">
+  <link itemprop="logo" href="/erins-pet-sitting-services.jpg">
+
+  <style>
+    p {
+      margin-top: 2px;
+      margin-bottom: 2px;
+    }
+
+    canvas {
+      border: 1px solid black;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* input,
+    button {
+      width: 80%;
+      margin: 10px 0;
+      padding: 10px;
+      font-size: 1rem;
+      margin-left: auto;
+      margin-right: auto;
+    } */
+
+    form {
+      width: 95%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo"><a href="/" style="display: flex; align-items: center;"><img src="/erins-pet-sitting-services.jpg"
+          style="height: 70px; border-radius: 50%;" alt="Erin's Pet Sitting Services Logo"></a>
+      <p style="font-family: 'Lora', sans-serif; font-size: 18px;">Erin's Pet Sitting Services</p>
+    </div>
+    <!-- Hamburger Menu for Mobile -->
+    <!-- <button class="hamburger" aria-label="Toggle navigation"> -->
+    <!-- <span class="hamburger-box"> -->
+    <!-- <span class="hamburger-inner"></span> -->
+    <!-- </span> -->
+    <!-- </button> -->
+
+    <!-- Navigation -->
+    <!-- <nav class="nav"> -->
+    <!-- <ul> -->
+    <!-- <li><a href="#reviews"><i class="fas fa-arrow-circle-right" style="margin-right: 5px;"></i>Reviews</a></li> -->
+    <!-- <li><a href="#services"><i class="fas fa-arrow-circle-right" style="margin-right: 5px;"></i>Services</a></li> -->
+    <!-- <li><a href="#downloads"><i class="fas fa-arrow-circle-right" style="margin-right: 5px;"></i>Downloads</a></li> -->
+    <!-- <li><a href="#contact"><i class="fas fa-arrow-circle-right" style="margin-right: 5px;"></i>Contact</a></li> -->
+    <!-- </ul> -->
+    <!-- </nav> -->
+  </header>
+
+
+  <form id="signForm" method="POST"
+    action="https://script.google.com/macros/s/AKfycbzqV1DDeqSLUh_HCDUVfmxnSY9XRsR3QLzUgjWqYpx-tPrQ7kQx-H7nxmya_BvROeZBzA/exec"
+    onsubmit="return signAndSubmit(event);">
+
+    <h1>Dog walking form</h1>
+
+
+    <p>In addition to filling out the new client form, please fill out the below if you require dog
+      walking as any part of the service. Please note, this form is to be filled out per dog. If any
+      additional forms are required, please request a copy.</p>
+
+    <label for="name">Your Name</label>
+    <input type="text" name="name" id="name" placeholder="Your full name" required />
+
+    <label for="pname">Pet's Name</label>
+    <input type="text" name="pname" id="pname" placeholder="Your pet's name" required />
+
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email" placeholder="Your email" required />
+
+    <h2>General</h2>
+
+    <p>It is a legal requirement for all dogs to wear a tag with their owners contact name/number
+      and address. I agree to provide my pet with a tag whilst in the care of Erin's Pet Sitting
+      Services:</p>
+    <div>
+      <input type="checkbox" name="p1" id="p1" required>
+      <label for="p1">I agree</label>
+    </div>
+
+    <h2>Group Walking</h2>
+
+    <p>Erin's Pet Sitting Services provides both group walks and solo walks depending on the
+      owners preference. Erin's Pet Sitting Services will match dogs based on personalities and
+      energy levels and will keep dogs to a maximum group of 4.</p>
+    <div>
+        <input type="radio" id="ro1" name="r1" value="CSS">
+        <label for="ro1">I am filling out this form for group walks</label>
+    </div>
+    <div>
+        <input type="radio" id="r02" name="r1" value="CSS">
+        <label for="r02">I am filling out this form for solo walks but would be interested in group walks</label>
+    </div>
+    <div>
+        <input type="radio" id="r02" name="r1" value="CSS">
+        <label for="r02">I do not give consent to walk my dog within a group setting</label>
+    </div>
+    <div>
+        <input type="radio" id="01" name="r1" value="CSS">
+        <label for="01">Other</label><input type="text" name="o1" id="o1" placeholder="Enter here" />
+    </div>
+
+    <p>Has your dog ever shown any kind of aggression to other dogs:</p>
+    <div>
+        <input type="radio" id="r03" name="r2" value="Yes">
+        <label for="r03">Yes</label>
+    </div>
+    <div>
+        <input type="radio" id="r04" name="r2" value="Yes">
+        <label for="r04">No</label>
+    </div>
+
+    <h2>Off Lead Consent</h2>
+
+    <p>Is your dog allowed off lead:</p>
+    <div>
+        <input type="radio" id="r05" name="r3" value="CSS">
+        <label for="r05">Yes</label>
+    </div>
+    <div>
+        <input type="radio" id="r06" name="r3" value="CSS">
+        <label for="r06">No</label>
+    </div>
+    <div>
+        <input type="radio" id="02" name="r3" value="CSS">
+        <label for="02">Other</label><input type="text" name="o2" id="o2" placeholder="Enter here" />
+    </div>
+
+    <p>If you have selected ‘No’ to the above, please sign the consent section at the bottom
+      of this form and submit. No additional information is required.</p>
+    <p>If you have selected ‘Yes’ to the above, please fill out the following:</p>
+
+    <p>I hereby give Erin Benson (Erin's Pet Sitting Services) permission to walk my dog(s) off-lead
+      during any scheduled walk undertaken. I also understand the potential consequences that
+      can occur to my dog or other dogs, from walking my dog off-lead while in the care of Erin's
+      Pet Sitting Services.</p>
+
+    <p>Does your dog have a consistent recall?:</p>
+    <div>
+        <input type="radio" id="ro7" name="r4" value="Yes">
+        <label for="ro7">Yes</label>
+    </div>
+    <div>
+        <input type="radio" id="ro8" name="r4" value="No">
+        <label for="ro8">No</label>
+    </div>
+
+    <p>Are there any triggers that may affect your dog's recall? (e.g. a ball, horses, people, other
+      dogs):</p>
+    <label for="e1" hidden>Enter here</label>
+    <input type="text" name="e1" id="e1" placeholder="Enter here" />
+
+
+    <p>I agree to release Erin Benson (Erin's Pet Sitting Services) from all liability in the event of
+      loss, injury or harm resulting from my dog being walked off-lead.</p>
+    <div>
+      <input type="checkbox" name="p2" id="p2">
+      <label for="p2">I agree</label>
+    </div>
+    <p>I understand that Erin's Pet Sitting Services will only allow dogs to be walked off-lead if Erin,
+      as dog walker, considers it safe to do so. Erin's Pet Sitting Service will never guarantee that
+      dogs will be walked off-lead, even if consent is given</p>
+    <div>
+      <input type="checkbox" name="p3" id="p3">
+      <label for="p3">I understand</label>
+    </div>
+    <p>I understand that Erin Benson (Erin's Pet Sitting Services) will have less control over my
+      dog(s) actions & I therefore I accept full liability for any damage caused to or by my dog, and
+      take full responsibility for the actions or disappearance of my dog whilst off-lead walking</p>
+    <div>
+      <input type="checkbox" name="p4" id="p4">
+      <label for="p4">I understand</label>
+    </div>
+    <p>If you require any additional information, please contact Erin's Pet Sitting Services on
+      07466159400 at your earliest convenience.</p>
+
+    <label>Please sign in the box below:</label>
+    <canvas id="signature-pad"></canvas>
+    <button type="button" onclick="clearSignature()">Clear Signature</button>
+
+
+
+
+    <!-- Hidden input to hold the base64 PDF -->
+    <input type="hidden" name="base64pdf" id="base64pdf" />
+
+    <button type="submit">Agree & Submit</button>
+  </form>
+
+  <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+
+
+  <script>
+    const canvas = document.getElementById('signature-pad');
+    const signaturePad = new SignaturePad(canvas, { backgroundColor: 'rgba(255,255,255,0)' });
+
+    function clearSignature() {
+      signaturePad.clear();
+    }
+
+    async function signAndSubmit(e) {
+      e.preventDefault();
+      const form = document.getElementById('signForm');
+
+      if (signaturePad.isEmpty()) {
+        alert('Please provide a signature.');
+        return;
+      }
+
+      const content = [
+        { text: 'Signed Form Submission', style: 'header' }
+      ];
+
+      // Helpers to get labels and track groups
+      function getLabelText(el) {
+        if (el.id) {
+          const label = form.querySelector(`label[for="${el.id}"]`);
+          if (label) return label.innerText.trim();
+        }
+        let prev = el.previousElementSibling;
+        while (prev) {
+          if (prev.tagName === 'LABEL') {
+            return prev.innerText.trim();
+          }
+          prev = prev.previousElementSibling;
+        }
+        return el.name || '(Unnamed Field)';
+      }
+
+      const processedCheckboxGroups = new Set();
+      const processedRadioGroups = new Set();
+
+      function processCheckboxGroup(name) {
+        const checkboxes = form.querySelectorAll(`input[type=checkbox][name="${name}"]`);
+        const selected = [];
+        checkboxes.forEach(chk => {
+          if (chk.checked) {
+            let label = getLabelText(chk);
+            selected.push(label || chk.value || 'Checked');
+          }
+        });
+        const labelText = name || 'Checkbox Group';
+        const value = selected.length ? selected.join(', ') : 'None';
+        content.push({ text: `${value}`, style: 'line' });
+      }
+
+      function processRadioGroup(name) {
+        const radios = form.querySelectorAll(`input[type=radio][name="${name}"]`);
+        let selectedLabel = 'None selected';
+        for (const radio of radios) {
+          if (radio.checked) {
+            selectedLabel = getLabelText(radio);
+            break;
+          }
+        }
+        const labelText = name || 'Radio Group';
+        content.push({ text: `${selectedLabel}`, style: 'line' });
+      }
+
+      // Walk through child nodes in order
+      function processNode(node) {
+        if (node.nodeType === Node.ELEMENT_NODE) {
+          const tag = node.tagName.toLowerCase();
+
+          if (tag === 'p') {
+            const text = node.innerText.trim();
+            if (text) content.push({ text, style: 'paragraph' });
+          }
+          else if (tag === 'h1') {
+            const text = node.innerText.trim();
+            if (text) content.push({ text, style: 'h1' });
+          }
+          else if (tag === 'h2') {
+            const text = node.innerText.trim();
+            if (text) content.push({ text, style: 'h2' });
+          }
+          else if (tag === 'input') {
+            if (node.type === 'hidden' || node.name === 'base64pdf') return;
+
+            if (node.type === 'checkbox') {
+              if (processedCheckboxGroups.has(node.name)) return;
+              processedCheckboxGroups.add(node.name);
+              processCheckboxGroup(node.name);
+            }
+            else if (node.type === 'radio') {
+              if (processedRadioGroups.has(node.name)) return;
+              processedRadioGroups.add(node.name);
+              processRadioGroup(node.name);
+            }
+            else {
+              const labelText = getLabelText(node);
+              const value = node.value.trim();
+              content.push({ text: `${labelText}: ${value}`, style: 'line' });
+            }
+          }
+          else if (tag === 'select' || tag === 'textarea') {
+            const labelText = getLabelText(node);
+            const value = node.value.trim();
+            content.push({ text: `${labelText}: ${value}`, style: 'line' });
+          }
+          else if (node.childNodes && node.childNodes.length) {
+            node.childNodes.forEach(processNode);
+          }
+        }
+      }
+
+      form.childNodes.forEach(processNode);
+
+      content.push({ text: `Signed on: ${new Date().toLocaleString()}`, style: 'line', margin: [0, 20, 0, 10] });
+
+      const signatureDataUrl = signaturePad.toDataURL('image/png');
+      content.push({ text: 'Signature:', style: 'line' });
+      content.push({ image: signatureDataUrl, width: 150 });
+
+      const docDefinition = {
+        content,
+        styles: {
+          header: { fontSize: 18, bold: true, margin: [0, 0, 0, 20] },
+          h1: { fontSize: 16, bold: true, margin: [0, 15, 0, 10] },
+          h2: { fontSize: 14, bold: true, margin: [0, 10, 0, 8] },
+          line: { fontSize: 12, italics: true, margin: [0, 0, 0, 5] },
+          paragraph: { fontSize: 12, bold: true, margin: [0, 0, 0, 5] }
+        },
+        footer: function (currentPage, pageCount) {
+          return {
+            columns: [
+              { text: 'Erin\'s Pet Sitting Services\nGravesend, Kent', alignment: 'left', margin: [40, 0, 0, 0] },
+              { text: `Page ${currentPage} of ${pageCount}`, alignment: 'center' },
+              { text: '07466159400\nErinsPetSittingServices@mail.com', alignment: 'right', margin: [0, 0, 40, 0] }
+            ],
+            fontSize: 9,
+            margin: [0, 10, 0, 10]
+          };
+        }
+      };
+
+
+      pdfMake.createPdf(docDefinition).getBase64(function (base64pdf) {
+        document.getElementById('base64pdf').value = base64pdf;
+        form.submit();
+      });
+    }
+  </script>
+
+
+</body>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-content">
+    <p>&copy; <span id="year"></span> Erin's Pet Sitting. All rights reserved.</p>
+
+    <div class="social-links">
+      <a href="https://www.facebook.com/people/Erins-Pet-Sitting-Services/61560319745772" aria-label="Facebook"><i
+          class="fab fa-facebook"></i></a>
+      <a href="https://m.me/61560319745772" aria-label="Messenger"><i class="fab fa-facebook-messenger"></i></a>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</footer>
+
+</html>

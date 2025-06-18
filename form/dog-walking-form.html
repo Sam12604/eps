@@ -76,7 +76,7 @@
 
 
   <form id="signForm" method="POST"
-    action="https://script.google.com/macros/s/AKfycbzqV1DDeqSLUh_HCDUVfmxnSY9XRsR3QLzUgjWqYpx-tPrQ7kQx-H7nxmya_BvROeZBzA/exec"
+    action="https://script.google.com/macros/s/AKfycbzRfFGAYHxVGatKrrYsOtInzOp6TSTbsika7L2P3pDvqnYTMD8heskchei2Lv8u3I9-tw/exec"
     onsubmit="return signAndSubmit(event);">
 
     <h1>Dog walking form</h1>
@@ -101,8 +101,8 @@
       and address. I agree to provide my pet with a tag whilst in the care of Erin's Pet Sitting
       Services:</p>
     <div>
-      <input type="checkbox" name="p1" id="p1" required>
-      <label for="p1">I agree</label>
+      <input type="checkbox" name="p0" id="p0" required>
+      <label for="p0">I agree</label>
     </div>
 
     <h2>Group Walking</h2>
@@ -163,6 +163,11 @@
       can occur to my dog or other dogs, from walking my dog off-lead while in the care of Erin's
       Pet Sitting Services.</p>
 
+    <div>
+      <input type="checkbox" name="p1" id="p1">
+      <label for="p1">I agree</label>
+    </div>
+
     <p>Does your dog have a consistent recall?:</p>
     <div>
         <input type="radio" id="ro7" name="r4" value="Yes">
@@ -212,6 +217,8 @@
     <!-- Hidden input to hold the base64 PDF -->
     <input type="hidden" name="base64pdf" id="base64pdf" />
 
+    <input type="hidden" name="ref" id="ref">
+
     <button type="submit">Agree & Submit</button>
     <p style="font-size: 0.9em; color: #5555555d; margin-top: 10px;">
       By submitting this form, you agree to our
@@ -245,9 +252,7 @@
         return;
       }
 
-      const content = [
-        { text: 'Signed Form Submission', style: 'header' }
-      ];
+      const content = [];
 
       // Helpers to get labels and track groups
       function getLabelText(el) {
@@ -350,10 +355,34 @@
       content.push({ text: 'Signature:', style: 'line' });
       content.push({ image: signatureDataUrl, width: 150 });
 
+
+
+      function generateRefCode(length = 5) {
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        let result = '';
+        for (let i = 0; i < length; i++) {
+          result += chars.charAt(Math.floor(Math.random() * chars.length));
+        }
+        document.getElementById('ref').value = result;
+        return result;
+      }
+
+      const refNumber = generateRefCode(); // e.g., "A7D9X"
+
       const docDefinition = {
+        header: function () {
+          return {
+            columns: [
+              { text: '', alignment: 'left', margin: [40, 10, 0, 0] },
+              { text: '', alignment: 'center' },
+              { text: `Ref ${refNumber}`, alignment: 'right', margin: [0, 10, 40, 0] }
+            ],
+            fontSize: 6,
+            margin: [0, 10, 0, 10]
+          };
+        },
         content,
         styles: {
-          header: { fontSize: 18, bold: true, margin: [0, 0, 0, 20] },
           h1: { fontSize: 16, bold: true, margin: [0, 15, 0, 10] },
           h2: { fontSize: 14, bold: true, margin: [0, 10, 0, 8] },
           line: { fontSize: 12, italics: true, margin: [0, 0, 0, 5] },
@@ -371,6 +400,7 @@
           };
         }
       };
+
 
 
       pdfMake.createPdf(docDefinition).getBase64(function (base64pdf) {

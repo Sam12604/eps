@@ -29,15 +29,11 @@
       margin-right: auto;
     }
 
-    /* input,
+    input,
     button {
-      width: 80%;
-      margin: 10px 0;
-      padding: 10px;
-      font-size: 1rem;
-      margin-left: auto;
-      margin-right: auto;
-    } */
+      margin-left: 0;
+      margin-right: 0;
+    }
 
     form {
       width: 95%;
@@ -349,11 +345,13 @@
 
       form.childNodes.forEach(processNode);
 
-      content.push({ text: `Signed on: ${new Date().toLocaleString()}`, style: 'line', margin: [0, 20, 0, 10] });
 
       const signatureDataUrl = signaturePad.toDataURL('image/png');
-      content.push({ text: 'Signature:', style: 'line' });
       content.push({ image: signatureDataUrl, width: 150 });
+
+      content.push({ text: document.getElementById('name').value, style: 'line' });
+
+      content.push({ text: new Date().toLocaleString(), style: 'line', margin: [0, 20, 0, 10] });
 
 
 

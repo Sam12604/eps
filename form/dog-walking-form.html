@@ -7,6 +7,16 @@
   <!-- <link rel="canonical" href="https://erinspetsittingservices.co.uk/"> -->
   <title>Dog Walking Form | Erin's Pet Sitting</title>
 
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-F5PCEV5Y33"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-F5PCEV5Y33');
+  </script>
+
   <link rel="icon" type="image/x-icon" href="/erins-pet-sitting-services.jpg">
 
   <link rel="stylesheet" href="/styles.css?260525">
@@ -188,15 +198,16 @@
         <input type="radio" id="ro10" name="r5" value="They sniff around but don't go out of sight">
         <label for="ro10">They sniff around but don't go out of sight</label>
     </div>
-        <div>
+    <div>
         <input type="radio" id="ro11" name="r5" value="They will go out of sight but will quickly reappear">
         <label for="ro11">They will go out of sight but will quickly reappear</label>
     </div>
-            <div>
-        <input type="radio" id="ro12" name="r5" value="They will stay with you unless they see one of their triggers (as above)">
+    <div>
+        <input type="radio" id="ro12" name="r5"
+        value="They will stay with you unless they see one of their triggers (as above)">
         <label for="ro12">They will stay with you unless they see one of their triggers (as above)</label>
     </div>
-        <div>
+    <div>
         <input type="radio" id="03" name="r5" value="No">
         <label for="03">Other</label><input type="text" name="o3" id="o3" placeholder="Enter here" />
     </div>
@@ -229,7 +240,7 @@
       07466159400 at your earliest convenience.</p>
     <p style="font-weight: bold">By signing below, you’re confirming that the information you’ve shared is correct, and
       that your electronic signature is just as valid as signing by hand.</p>
-    
+
     <label>Please sign in the box below:</label>
     <canvas id="signature-pad"></canvas>
     <button type="button" onclick="clearSignature()">Clear Signature</button>

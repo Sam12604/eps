@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="canonical" href="https://erinspetsittingservices.co.uk/"> -->
+  <title>Whatsapp Update List | Erin's Pet Sitting</title>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-F5PCEV5Y33"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-F5PCEV5Y33');
+  </script>
+
+  <link rel="icon" type="image/x-icon" href="/erins-pet-sitting-services.jpg">
+
+  <link rel="stylesheet" href="/styles.css?260525">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap" rel="stylesheet">
+
+  <link itemprop="url" href="https://erinspetsittingservices.co.uk/">
+  <link itemprop="logo" href="/erins-pet-sitting-services.jpg">
+
+  <style>
+    p {
+      margin-top: 2px;
+      margin-bottom: 2px;
+    }
+
+    canvas {
+      border: 1px solid black;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    input,
+    button {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    form {
+      width: 95%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo"><a href="/" style="display: flex; align-items: center;"><img src="/erins-pet-sitting-services.jpg"
+          style="height: 70px; border-radius: 50%;" alt="Erin's Pet Sitting Services Logo"></a>
+      <p style="font-family: 'Lora', sans-serif; font-size: 18px;">Erin's Pet Sitting Services</p>
+    </div>
+    <!-- Hamburger Menu for Mobile -->
+    <!-- <button class="hamburger" aria-label="Toggle navigation"> -->
+    <!-- <span class="hamburger-box"> -->
+    <!-- <span class="hamburger-inner"></span> -->
+    <!-- </span> -->
+    <!-- </button> -->
+
+    <!-- Navigation -->
+    <!-- <nav class="nav"> -->
+    <!-- <ul> -->
+    <!-- <li><a href="#reviews"><i class="fas fa-arrow-circle-right" style="margin-right: 5px;"></i>Reviews</a></li> -->
+    <!-- <li><a href="#services"><i class="fas fa-arrow-circle-right" style="margin-right: 5px;"></i>Services</a></li> -->
+    <!-- <li><a href="#downloads"><i class="fas fa-arrow-circle-right" style="margin-right: 5px;"></i>Downloads</a></li> -->
+    <!-- <li><a href="#contact"><i class="fas fa-arrow-circle-right" style="margin-right: 5px;"></i>Contact</a></li> -->
+    <!-- </ul> -->
+    <!-- </nav> -->
+  </header>
+
+  <form id="telesignup">
+
+    <h1>Sign up for monthly Whatsapp messages!</h1>
+
+
+    <p>Want to be kept in the loop? Sign up below for monthly Whatsapp texts!</p>
+    <p>Availability updates, upcoming leave, weather notices & much more.</p>
+
+    <label for="name">Your Name</label>
+    <input type="text" name="name" id="name" placeholder="Your full name" required />
+
+    <label for="pname">Pet's Name</label>
+    <input type="text" name="pname" id="pname" placeholder="Your pet's name" required />
+
+    <label for="tel">Mobile Number (UK only)</label>
+    <input type="tel" name="tel" id="tel" placeholder="Your phone number" pattern="^07\d{9}$" required />
+
+    <p>Are you an existing client?</p>
+    <div>
+      <input type="checkbox" name="p0" id="p0">
+      <label for="p0">Yes</label>
+    </div>
+
+    <p>
+      By submitting this form, you agree to receive WhatsApp messages from Erin's Pet Sitting Services.
+      Your phone number will <strong>not</strong> be shared with third parties or used for marketing purposes.
+    </p>
+
+    <!-- reCAPTCHA widget -->
+    <div class="g-recaptcha" data-sitekey="6Lf8a8ArAAAAABc7mEtcHalBZuVxv1CEhfc6HndZ"></div>
+
+    <button type="submit">Agree & Submit</button>
+    <p style="font-size: 0.9em; color: #5555555d; margin-top: 10px;">
+      By submitting this form, you agree to our
+      <a href="https://erinspetsittingservices.co.uk/downloads/PrivacyPolicy.pdf" target="_blank"
+        style="font-size: 0.9em; color: #5555555d; margin-top: 10px;">Privacy Policy</a>.
+    </p>
+  </form>
+
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    document.getElementById("telesignup").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      var name = encodeURIComponent(document.getElementById("name").value);
+      var pname = encodeURIComponent(document.getElementById("pname").value);
+      var tel = encodeURIComponent(document.getElementById("tel").value);
+      var p0 = document.getElementById("p0").checked;
+      var recaptchaResponse = grecaptcha.getResponse();
+
+
+      var url = "https://script.google.com/macros/s/AKfycbzALF07pQUoFortxW99NDFp_Sn9g0TLN8tSdEmxw2uZuTBNwIxo62OZ8Q7saJzG9UMDLQ/exec";
+      url += "?callback=formCallback&name=" + name + "&az=opa";
+      url += "&pname=" + pname + "&tel=" + tel + "&p0=" + p0;
+      url += "&recaptcha=" + recaptchaResponse;
+
+      $.ajax({
+        url: url,
+        method: "GET",
+        dataType: "jsonp"
+      });
+    });
+
+    function formCallback(response) {
+      alert(response.message);
+      if (response.status === "success") {
+        document.getElementById("telesignup").reset();
+        grecaptcha.reset();
+      }
+    }
+
+  </script>
+
+
+</body>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-content">
+
+    <p>Erin's Pet Sitting Services<br>Gravesend, Kent</p>
+
+    <div class="social-links">
+      <a href="https://www.facebook.com/people/Erins-Pet-Sitting-Services/61560319745772" aria-label="Facebook"><i
+          class="fab fa-facebook"></i></a>
+      <a href="https://www.instagram.com/ErinsPetSittingServicesKent" aria-label="Facebook"><i
+          class="fab fa-instagram"></i></a>
+      <a href="https://m.me/61560319745772" aria-label="Messenger"><i class="fab fa-facebook-messenger"></i></a>
+    </div>
+
+
+    <p style="font-size: 12px; color: #3d3d3dab;">&copy; 2025 Erin's Pet Sitting. All rights reserved.<br>
+      <a href="https://erinspetsittingservices.co.uk/downloads/PrivacyPolicy.pdf"
+        style="font-size: 12px; color: #3d3d3dab; text-decoration: none;">Privacy Policy</a>
+    </p>
+  </div>
+</footer>
+
+</html>

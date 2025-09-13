@@ -3,3 +3,44 @@ layout: default
 title: Downloads | Erin's Pet Sitting
 description:
 ---
+
+<!-- Downloads Section -->
+<section id="downloads" class="downloads">
+    <h2>Downloads</h2>
+    <div class="download-links" id="download-links">
+        <!-- Links will be inserted here by JS -->
+    </div>
+</section>
+
+<script>
+  const apiUrl = 'https://api.github.com/repos/sam12604/eps/contents/downloads';
+  const siteBase = 'https://erinspetsittingservices.co.uk/downloads/';
+
+  async function fetchDownloads() {
+    try {
+      const response = await fetch(apiUrl);
+      const files = await response.json();
+
+      if (Array.isArray(files)) {
+        const container = document.getElementById('download-links');
+
+        files.forEach(file => {
+          if (file.type === 'file' && file.name.toLowerCase().endsWith('.pdf')) {
+            const a = document.createElement('a');
+            a.href = siteBase + encodeURIComponent(file.name);
+            const displayName = file.name.replace(/\.pdf$/i, '');
+            a.innerHTML = `<i class="fas fa-download" style="padding-right: 10px;"></i>${displayName}`;
+            container.appendChild(a);
+          }
+        });
+      } else {
+        console.error('Failed to fetch files:', files);
+      }
+    } catch (error) {
+      console.error('Error fetching files:', error);
+    }
+  }
+
+  fetchDownloads();
+</script>
+

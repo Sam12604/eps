@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>{{ page.title }}</title>
-  <link rel="stylesheet" href="/styles.css">
+    <title>{{ page.title }}</title>
+    {% include head.html %}
 </head>
+
 <body>
-  {% include header.html %}
+    {% include header.html %}
 
-  <main>
-    {{ content }}
-  </main>
+    <main>
+        {{ content }}
+    </main>
 
-  {% include footer.html %}
+    {% include footer.html %}
 </body>
+
 </html>

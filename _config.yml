@@ -1,0 +1,14 @@
+# Site settings
+title: "Erin's Pet Sitting Services"
+description: "Trusted pet care, dog walking, and sitting services in Northfleet & Gravesend."
+url: "https://erinspetsittingservices.co.uk"
+baseurl: ""
+
+# Author info
+author:
+  name: "Erin's Pet Sitting Services"
+  email: "erinspetsittingservices@mail.com"
+
+# Build settings
+markdown: kramdown
+permalink: /:title/

@@ -1,0 +1,72 @@
+ <!-- Areas Section -->
+    <section id="areas" class="contact">
+        <h2>Areas Covered</h2>
+        <p><i class="fas fa-map-marker-alt" style="padding-right: 10px;"></i>Kent - Gravesend, Southfleet, Ebbsfleet,
+            Swanscombe, Dartford & surroundings</p>
+        <div id="map"
+            style="width: 100%; height: 30vh; min-height: 220px; border-radius: 10px; box-shadow: 0 0 0 black;"></div>
+        <script>
+            const map = L.map('map').setView([51.40, 0.38], 10); // Gravesend coordinates
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+
+            // Add areas with hover effects
+            const areas = {
+                type: 'FeatureCollection',
+                features: [
+                    {
+                        type: 'Feature',
+                        properties: { name: 'Areas Covered' },
+                        geometry: {
+                            "type": "Polygon",
+                            "coordinates": [
+                                [
+                                    [
+                                        0.2336781707296609,
+                                        51.44226840656512
+                                    ],
+                                    [
+                                        0.2416262320915621,
+                                        51.40772509647002
+                                    ],
+                                    [
+                                        0.30356498090193895,
+                                        51.36611679777474
+                                    ],
+                                    [
+                                        0.43654516819839273,
+                                        51.352622826028295
+                                    ],
+                                    [
+                                        0.5423337028126127,
+                                        51.37642802045025
+                                    ],
+                                    [
+                                        0.4125256502885293,
+                                        51.443399230071094
+                                    ],
+                                    [
+                                        0.3007542790894604,
+                                        51.452668708029506
+                                    ],
+                                    [
+                                        0.2336781707296609,
+                                        51.44226840656512
+                                    ]
+                                ]
+                            ]
+                        }
+                    }
+                ]
+            };
+
+            L.geoJSON(areas, {
+                style: { color: '#72866b', fillOpacity: 0.5 }, // Match your site's color
+                onEachFeature: (feature, layer) => {
+                    layer.bindPopup(feature.properties.name); // Show area name on hover
+                }
+            }).addTo(map);
+        </script>
+    </section>

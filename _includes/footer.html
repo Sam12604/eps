@@ -1,22 +1,114 @@
 <!-- Footer -->
 <footer>
-    <div class="footer-content">
+    <!-- Floating Contact Button -->
+    <button id="contactBtn" class="contact-btn">📞 Contact Me</button>
 
-        <p>Erin's Pet Sitting Services<br>Gravesend, Kent</p>
-
-        <div class="social-links">
-            <a href="https://www.facebook.com/people/Erins-Pet-Sitting-Services/61560319745772" aria-label="Facebook"><i
-                    class="fab fa-facebook"></i></a>
-            <a href="https://www.instagram.com/ErinsPetSittingServicesKent" aria-label="Instagram"><i
-                    class="fab fa-instagram"></i></a>
-            <a href="https://m.me/61560319745772" aria-label="Messenger"><i class="fab fa-facebook-messenger"></i></a>
+    <!-- Floating Contact Form -->
+    <div id="contactForm" class="contact-form">
+        <div class="form-header">
+            <h3>Get in touch</h3>
+            <span id="closeForm" class="close-btn">&times;</span>
         </div>
+        <form>
+            <label for="name">Your Name</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
+
+            <label for="service">Service</label>
+            <select id="service" required>
+                <option disabled selected>Select a service</option>
+                <option>Dog Walking</option>
+                <option>Group Walking</option>
+                <option>Hourly Sitting</option>
+                <option>Overnight Sitting</option>
+                <option>Other / Not Sure</option>
+            </select>
+
+            <label for="timescale">How often?</label>
+            <select id="timescale" required>
+                <option disabled selected>Select how often</option>
+                <option>One off</option>
+                <option>Ad hoc</option>
+                <option>Regularly</option>
+            </select>
+
+            <label for="message">Message</label>
+            <textarea id="message" rows="3" placeholder="Tell me about your dog or request 😊" required></textarea>
+
+            <button type="submit" class="submit-btn">Send via WhatsApp</button>
+        </form>
+
+    </div>
+    <script>
+        const contactBtn = document.getElementById("contactBtn");
+        const contactForm = document.getElementById("contactForm");
+        const closeForm = document.getElementById("closeForm");
+
+        contactBtn.addEventListener("click", () => {
+            contactForm.style.display = contactForm.style.display === "block" ? "none" : "block";
+        });
+
+        closeForm.addEventListener("click", () => {
+            contactForm.style.display = "none";
+        });
+
+        // Optional: send via WhatsApp
+        document.querySelector(".submit-btn").addEventListener("click", (e) => {
+            e.preventDefault();
+            const name = document.getElementById("name").value;
+            const message = document.getElementById("message").value;
+            const service = document.getElementById("service").options[document.getElementById("service").selectedIndex].text.toLowerCase()
+            const frequency = document.getElementById("timescale").options[document.getElementById("timescale").selectedIndex].text.toLowerCase()
+            const encodedMsg = encodeURIComponent(`Hi Erin, I'm looking for ${frequency} ${service}. ${message} Thank you, ${name}`);
+            window.open(`https://wa.me/447466159400?text=${encodedMsg}`, "_blank");
+        });
+    </script>
+
+    <style>
+        .footer-content {
+            display: flex;
+            gap: 10px;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-direction: row;
+        }
+
+        @media (max-width: 1000px) {
+            .footer-content {
+                padding-bottom: 80px;
+            }
+        }
+
+        @media (max-width: 800px) {
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+    <div class="footer-content">
+        <div>
+            <p>Erin's Pet Sitting Services<br>Gravesend, Kent</p>
+
+            <div class="social-links">
+                <a href="https://www.facebook.com/people/Erins-Pet-Sitting-Services/61560319745772"
+                    aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/ErinsPetSittingServicesKent" aria-label="Instagram"><i
+                        class="fab fa-instagram"></i></a>
+                <a href="https://m.me/61560319745772" aria-label="Messenger"><i
+                        class="fab fa-facebook-messenger"></i></a>
+            </div>
 
 
-        <p style="font-size: 12px; color: #3d3d3dab;">&copy; 2025 Erin's Pet Sitting. All rights reserved.<br>
-            <a href="https://erinspetsittingservices.co.uk/downloads/PrivacyPolicy.pdf"
-                style="font-size: 12px; color: #3d3d3dab; text-decoration: none;">Privacy Policy</a>
-        </p>
+            <p style="font-size: 12px; color: #3d3d3dab;">&copy; 2025 Erin's Pet Sitting. All rights reserved.<br>
+                <a href="https://erinspetsittingservices.co.uk/downloads/PrivacyPolicy.pdf"
+                    style="font-size: 12px; color: #3d3d3dab; text-decoration: none;">Privacy Policy</a>
+            </p>
+        </div>
+        <!-- <div>
+            <p>Subscribe to monthly updates</p>
+
+            <input type="tel" placeholder="07123456789">
+            <button type="submit">Sign up</button>
+        </div> -->
     </div>
     <script src="/script.js"></script>
 </footer>

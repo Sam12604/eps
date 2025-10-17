@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{{ page.title }}</title>
+    {% include head.html %}
+</head>
+
+<body>
+    {% include header.html %}
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero"
+            style="background:linear-gradient(rgba(245, 245, 245, 0.6), rgba(245, 245, 245, 0.6)), url('/{{page.image}}'); background-size: cover; background-position: right center;">
+            <h1>🐾 Dog Walking in {{page.location}}</h1>
+            <h2 style="padding-bottom: 20px; font-weight: normal;">Click below to book your meet and greet!</h2>
+            <a href="#book-now" class="cta-button">Book now!</a>
+        </section>
+
+        <section class="intro">
+            <p>
+                Looking for a friendly, reliable dog walker in {{page.location}}? I provide safe, enjoyable walks that
+                fit your
+                dog’s personality and your schedule. Whether your pup loves calm strolls or energetic adventures, I make
+                sure
+                every walk is full of tail wags, care, and attention. My goal is to give you total peace of mind knowing
+                your
+                best friend is in good hands while you’re busy or away.
+            </p>
+        </section>
+
+        <section class="why-choose">
+            <h2>Why Local Dog Owners in {{page.location}} Choose Me</h2>
+            <ul>
+                <li><span class="icon">🦮</span> Fully insured, DBS checked and canine first aid trained</li>
+                <li><span class="icon">🐾</span> One-to-one or small, friendly group walks only</li>
+                <li><span class="icon">⏰</span> Flexible timings — morning, midday, or afternoon walks</li>
+                <li><span class="icon">📸</span> Photos and updates sent regularly</li>
+                <li><span class="icon">🏡</span> Local and reliable — based locally to {{page.location}}</li>
+            </ul>
+        </section>
+
+        <section class="local-area">
+            <h2>🐕 My Favourite Walking Spots in {{page.location}}</h2>
+            <p>
+                {{page.location}} has some fantastic parks and walking routes that dogs absolutely love.
+                I often take dogs to different spots like {{ page.location | downcase | replace: 'dartford', 'Darenth
+                Country Park and Central Park' | replace: 'gravesend', 'Ashenbank Woods and Camer Park' |
+                default: 'local parks and scenic areas' }} for plenty of sniffing and exploring.
+                Every route is chosen with your dog’s safety and enjoyment in mind.
+            </p>
+        </section>
+
+        <section class="review-card">
+            <div class="review">
+                <div class="review-stars">★★★★★</div>
+                <p>"{{page.review.content}}"</p>
+                <div class="review-author">
+                    <img src="{{page.review.image}}" alt="Dog Walking Review" class="author-photo">
+                    <div class="author-info">
+                        <span class="author-name">{{page.review.author}}</span>
+                        <span class="author-source">via {{page.review.source}}</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="assurance">
+            <h2>🦴 Trusted Care You Can Count On</h2>
+            <p>
+                I treat every dog as if they were my own — with patience, love, and consistency. Whether it’s your
+                puppy’s first
+                walk or your senior dog’s daily outing, I adapt each session to their needs. I’m <a
+                    href="/certificates-policies">insured, DBS
+                    checked</a>, and
+                always happy to meet new pups and their owners before starting regular walks.
+            </p>
+        </section>
+
+        <!-- Areas Section -->
+        <section id="areas" class="contact">
+            <h2>📍 Areas I Cover</h2>
+            <p><i class="fas fa-map-marker-alt" style="padding-right: 10px;"></i>Kent - Gravesend, Southfleet,
+                Ebbsfleet,
+                Swanscombe, Dartford & surroundings</p>
+            {% include map.html %}
+        </section>
+
+        <section class="pricing">
+            <h2>💰 Dog Walking Prices</h2>
+
+            <div class="pricing-container">
+
+                <div class="pricing-card">
+                    <div class="pricing-inner">
+                        <div class="pricing-front">
+                            <h3>30-Minute Walk</h3>
+                            <p class="price">£12</p>
+                            <p>Perfect for smaller dogs or a quick midday stroll.</p>
+                        </div>
+                        <div class="pricing-back" style="background-image: url('/dog-walking/pricing-card-01.jpg');">
+                            <div class="overlay">
+                                <p>Includes a short local route with plenty of sniffing time and photo updates after
+                                    each walk!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="pricing-inner">
+                        <div class="pricing-front">
+                            <h3>60-Minute Walk</h3>
+                            <p class="price">£19</p>
+                            <p>Ideal for energetic dogs who love a longer adventure!</p>
+                        </div>
+                        <div class="pricing-back" style="background-image: url('/dog-walking/pricing-card-02.jpg');">
+                            <div class="overlay">
+                                <p>We’ll explore local parks and trails — perfect for dogs that love to stretch their
+                                    legs!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="pricing-inner">
+                        <div class="pricing-front">
+                            <h3>Group Walk (up to 4 dogs)</h3>
+                            <p class="price">£17 per dog</p>
+                            <p>Great for sociable dogs — friendly and fun small groups.</p>
+                        </div>
+                        <div class="pricing-back" style="background-image: url('/dog-walking/pricing-card-03.jpg');">
+                            <div class="overlay">
+                                <p>Safe, calm small groups with dogs that match in temperament and energy levels.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <script>
+                document.querySelectorAll('.pricing-card').forEach(card => {
+                    card.addEventListener('click', () => {
+                        card.classList.toggle('flip');
+                    });
+                });
+            </script>
+
+
+        </section>
+
+
+
+        <section id="book-now" class="contact">
+            <h2>📱 Ready to book a dog walk?</h2>
+            <p>I’d love to meet you and your dog for a meet and greet.<br>
+                The quickest way to book is by messaging me directly:</p>
+            <div class="download-links">
+                <p>
+                    <a
+                        href="https://wa.me/447466159400?text=Hi%2C%20I%27m%20interested%20in%20booking%20a%20dog%20walk%20with%20you!">
+                        <i class="fab fa-whatsapp" style="padding-right: 10px;"></i>WhatsApp - 07466 159400
+                    </a>
+                </p>
+                <p>
+                    <a href="https://m.me/61560319745772?ref=DOTCOMREFERAL">
+                        <i class="fab fa-facebook-messenger" style="padding-right: 10px;"></i>Messenger - Erin's Pet
+                        Sitting
+                    </a>
+                </p>
+            </div>
+            <!-- <a href="https://wa.me/447466159400?text=Hi%2C%20I%27d%20like%20to%20book%20a%20service!" class="cta-button">Book via WhatsApp</a> -->
+        </section>
+    </main>
+
+    {% include footer.html %}
+</body>
+
+</html>

@@ -1,32 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <!-- Homepage -->
-    <url>
-        <loc>https://erinspetsittingservices.co.uk/</loc>
-        <lastmod>2025-06-21</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>1.0</priority>
-    </url>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
-    <url>
-        <loc>https://erinspetsittingservices.co.uk/dog-walking/gravesend</loc>
-        <lastmod>2025-06-21</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>1.0</priority>
-    </url>
-    
-    <!-- PDF in the downloads subfolder -->
-    <url>
-        <loc>https://erinspetsittingservices.co.uk/downloads/proofofinsurance.pdf</loc>
-        <lastmod>2025-03-01</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.8</priority>
-    </url>
 
-    <url>
-        <loc>https://erinspetsittingservices.co.uk/downloads/firstaid.pdf</loc>
-        <lastmod>2025-04-08</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.8</priority>
-    </url>
+<url>
+  <loc>https://erinspetsittingservices.co.uk/</loc>
+  <lastmod>2025-10-17T16:18:21+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://erinspetsittingservices.co.uk/dog-walking/gravesend</loc>
+  <lastmod>2025-10-17T16:18:21+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://erinspetsittingservices.co.uk/dog-walking/dartford</loc>
+  <lastmod>2025-10-17T16:18:21+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://erinspetsittingservices.co.uk/certificates-policies/</loc>
+  <lastmod>2025-10-17T16:18:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://erinspetsittingservices.co.uk/join/</loc>
+  <lastmod>2025-10-17T16:18:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://erinspetsittingservices.co.uk/downloads/Policies.pdf</loc>
+  <lastmod>2025-10-17T16:18:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://erinspetsittingservices.co.uk/downloads/ProofOfInsurance.pdf</loc>
+  <lastmod>2025-10-17T16:18:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://erinspetsittingservices.co.uk/downloads/FirstAid.pdf</loc>
+  <lastmod>2025-10-17T16:18:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://erinspetsittingservices.co.uk/downloads/PrivacyPolicy.pdf</loc>
+  <lastmod>2025-10-17T16:18:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://erinspetsittingservices.co.uk/form/dog-walking-form</loc>
+  <lastmod>2025-10-17T16:18:21+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://erinspetsittingservices.co.uk/form/signup</loc>
+  <lastmod>2025-10-17T16:18:21+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
 </urlset>

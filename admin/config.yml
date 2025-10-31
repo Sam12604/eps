@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: sam12604/eps
   branch: main
 
 media_folder: "assets/uploads"

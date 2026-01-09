@@ -1,7 +1,7 @@
 <!-- Footer -->
 <footer>
     <!-- Floating Contact Button -->
-    <button data-tally-open="yP2aKp" data-tally-emoji-text="👋" data-tally-emoji-animation="wave" data-tally-form-events-forwarding="1" class="contact-btn">📞 Contact Me</button>
+    <button id="contactBtn" class="contact-btn">📞 Contact Me</button>
 
     <!-- Floating Contact Form -->
     <div id="contactForm" class="contact-form">
@@ -9,34 +9,8 @@
             <h3>Get in touch</h3>
             <span id="closeForm" class="close-btn">&times;</span>
         </div>
-        <form>
-            <label for="name">Your Name</label>
-            <input type="text" id="name" placeholder="Enter your name" required>
-
-            <label for="service">Service</label>
-            <select id="service" required>
-                <option disabled selected>Select a service</option>
-                <option>Dog Walking</option>
-                <option>Group Walking</option>
-                <option>Hourly Sitting</option>
-                <option>Overnight Sitting</option>
-                <option>Other / Not Sure</option>
-            </select>
-
-            <label for="timescale">How often?</label>
-            <select id="timescale" required>
-                <option disabled selected>Select how often</option>
-                <option>One off</option>
-                <option>Ad hoc</option>
-                <option>Regularly</option>
-            </select>
-
-            <label for="message">Message</label>
-            <textarea id="message" rows="3" placeholder="Tell me about your dog or request 😊" required></textarea>
-
-            <button type="submit" class="submit-btn" onclick="gtag('event', 'qualify_lead');">Send via WhatsApp</button>
-        </form>
-
+        <iframe data-tally-src="https://tally.so/embed/yP2aKp?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&formEventsForwarding=1" loading="lazy" width="100%" height="542" frameborder="0" marginheight="0" marginwidth="0" title="Get in touch!"></iframe>
+        <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
     </div>
     <script>
         const contactBtn = document.getElementById("contactBtn");
@@ -52,15 +26,15 @@
         });
 
         // Optional: send via WhatsApp
-        document.querySelector(".submit-btn").addEventListener("click", (e) => {
-            e.preventDefault();
-            const name = document.getElementById("name").value;
-            const message = document.getElementById("message").value;
-            const service = document.getElementById("service").options[document.getElementById("service").selectedIndex].text.toLowerCase()
-            const frequency = document.getElementById("timescale").options[document.getElementById("timescale").selectedIndex].text.toLowerCase()
-            const encodedMsg = encodeURIComponent(`Hi Erin, I'm looking for ${frequency} ${service}. ${message} Thank you, ${name}`);
-            window.open(`https://wa.me/447466159400?text=${encodedMsg}`, "_blank");
-        });
+        // document.querySelector(".submit-btn").addEventListener("click", (e) => {
+        //     e.preventDefault();
+        //     const name = document.getElementById("name").value;
+        //     const message = document.getElementById("message").value;
+        //     const service = document.getElementById("service").options[document.getElementById("service").selectedIndex].text.toLowerCase()
+        //     const frequency = document.getElementById("timescale").options[document.getElementById("timescale").selectedIndex].text.toLowerCase()
+        //     const encodedMsg = encodeURIComponent(`Hi Erin, I'm looking for ${frequency} ${service}. ${message} Thank you, ${name}`);
+        //     window.open(`https://wa.me/447466159400?text=${encodedMsg}`, "_blank");
+        // });
     </script>
 
     <style>

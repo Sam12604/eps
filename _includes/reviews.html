@@ -1,0 +1,133 @@
+<section class="reviews-wrapper">
+    <div class="reviews-scroll">
+        {% for review in site.data.reviews %}
+        <div class="review-card">
+            <div class="review">
+                <div class="review-stars">{{ review.stars }}</div>
+                <p>"{{ review.content }}"</p>
+                <div class="review-author">
+                    <img src="{{ review.image }}" alt="Review Photo" class="author-photo">
+                    <div class="author-info">
+                        <span class="author-name">{{ review.author }}</span>
+                        <span class="author-source">via {{ review.source }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<style>
+    .review {
+        display: block;
+    }
+
+    .reviews-wrapper {
+        width: 100%;
+        overflow-x: scroll;
+        /* manual scroll allowed */
+        overflow-y: hidden;
+        -ms-overflow-style: none;
+        /* IE/Edge */
+        scrollbar-width: none;
+        /* Firefox */
+        padding: 20px 0;
+    }
+
+    .reviews-scroll {
+        display: flex;
+        gap: 50px;
+    }
+
+    .review-card {
+        min-width: 280px;
+        max-width: 500px;
+        padding: 25px 20px;
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+        flex-shrink: 0;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        display: flex;
+        align-items: center;
+    }
+
+    @media (max-width: 1000px) {
+        .review-card {
+            max-width: 300px;
+
+        }
+    }
+
+    .review-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .review-stars {
+        color: #ffb703;
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+    }
+
+    .review-card p {
+        font-style: italic;
+        color: #444;
+        font-size: 1.05rem;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+    .review-author {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .author-photo {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .author-info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .author-name {
+        font-weight: 600;
+        color: #222;
+    }
+
+    .author-source {
+        font-size: 0.9rem;
+        color: #777;
+    }
+
+    @keyframes scroll-left {
+        0% {
+            transform: translateX(0);
+        }
+
+        45% {
+            transform: translateX(-100%);
+        }
+
+        50% {
+            transform: translateX(-100%);
+            /* pause on the left */
+        }
+
+        95% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(0);
+            /* pause on the right */
+        }
+    }
+</style>

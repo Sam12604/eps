@@ -1,0 +1,62 @@
+<!-- Full screen loading overlay -->
+<div id="loadingOverlay" style="display:none;">
+    <div class="spinner"></div>
+    <p id="text">Loading document</p>
+</div>
+
+<style>
+    #loadingOverlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        /* semi-transparent grey */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        z-index: 9999;
+    }
+
+    .spinner {
+        width: 60px;
+        height: 60px;
+        border: 6px solid #ccc;
+        border-top-color: #395230;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
+
+    p#text {
+        font-size: 1.3em;
+        color: whitesmoke;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+</style>
+
+<script>
+    // Show the loading overlay
+    function showLoading(msg) {
+        document.getElementById('loadingOverlay').style.display = 'flex';
+        message = document.getElementById('text');
+        if (msg) { message.innerText = msg; message.style.display = 'flex'; } else { message.innerText = ''; message.style.display = 'none'; }
+    }
+
+    // Hide the loading overlay
+    function hideLoading() {
+        document.getElementById('loadingOverlay').style.display = 'none';
+    }
+
+</script>

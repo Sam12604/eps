@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Professional Dog Walking & Sitting in Gravesend & Dartford | Erin's Pet Sitting
-description: Looking for a reliable pet sitter in Northfleet & Gravesend? Erin's Pet Sitting offers trusted care for your pets while you're away. Book today!
+title: Dog Walking & Sitting in Gravesend & Dartford | Erin's Pet Sitting
+description: Looking for a reliable dog walker or pet sitter in Gravesend & Dartford? Erin's Pet Sitting Services offers trusted care for your pets. Interested? Message to book a meet and greet today!
 ---
 
 <!-- Hero Section -->
@@ -9,7 +9,7 @@ description: Looking for a reliable pet sitter in Northfleet & Gravesend? Erin's
     style="background:linear-gradient(rgba(245, 245, 245, 0.6), rgba(245, 245, 245, 0.6)), url('/gravesend-sitter-cover.jpg'); background-size: cover; background-position: right center;">
     <h1>Professional dog walking & pet sitting with love and care in and around Gravesend, Kent</h1>
     <h2 style="padding-bottom: 20px; font-weight: normal;">Where tails are always wagging</h2>
-    <a href="#contact" class="cta-button">Enquire Now</a>
+    <a class="cta-button" onclick="openform()">Book Now!</a>
 </section>
 
 
@@ -33,119 +33,104 @@ description: Looking for a reliable pet sitter in Northfleet & Gravesend? Erin's
 
 <!-- Services Section -->
 <section id="services" class="pricing">
-    <h2>Services</h2>
-    <h3>Overnight Dog Sitting -</h3>
-    <p>
-        £30 a night<br>
-        + £12 per additional dog
-    </p>
+    <div class="pricing-container">
 
-    <h3>Day Sitting -</h3>
-    <p>£10 per hour (minimum, 3 hours)</p>
+        <div class="pricing-card">
+            <div class="pricing-inner">
+                <div class="pricing-front">
+                    <h3>Solo Dog Walking</h3>
+                    <p class="price">From £12</p>
+                    <div class="flip-icon">⤾</div>
+                </div>
+                <div class="pricing-back" style="background-image: url('/dog-walking/pricing-card-01.jpg');">
+                </div>
+            </div>
+        </div>
 
-    <h3>Drop In Visits -</h3>
-    <p>
-        £10 for 15 Minutes<br>
-        £12 for 30 Minutes<br>
-        £19 for 60 Minutes<br>
-        + £5 per additional dog
-    </p>
+        <div class="pricing-card">
+            <div class="pricing-inner">
+                <div class="pricing-front">
+                    <h3>Group Walk</h3>
+                    <p class="price">£17 for 60 minutes</p>
+                    <div class="flip-icon">⤾</div>
+                </div>
+                <div class="pricing-back" style="background-image: url('/dog-walking/pricing-card-03.jpg');">
+                </div>
+            </div>
+        </div>
 
-    <h3>Solo Dog Walking -</h3>
-    <p>
-        £10 for 15 Minutes<br>
-        £12 for 30 Minutes<br>
-        £19 for 60 Minutes<br>
-        + £5 per additional dog
-    </p>
+        <div class="pricing-card">
+            <div class="pricing-inner">
+                <div class="pricing-front">
+                    <h3>Overnights</h3>
+                    <p class="price">£30 per night</p>
+                    <p>+£12 per additional dog</p>
+                    <div class="flip-icon">⤾</div>
+                </div>
+                <div class="pricing-back" style="background-image: url('/dog-walking/pricing-card-03.jpg');">
+                </div>
+            </div>
+        </div>
 
-    <h3>Group Dog Walking -</h3>
-    <p>
-        £16 for 60 minutes<br>
-        + £7 per additional dog
-    </p>
+        <div class="pricing-card">
+            <div class="pricing-inner">
+                <div class="pricing-front">
+                    <h3>Day Sitting</h3>
+                    <p class="price">£10 per hour</p>
+                    <p>Minimum 3 hours</p>
+                    <div class="flip-icon">⤾</div>
+                </div>
+                <div class="pricing-back" style="background-image: url('/dog-walking/pricing-card-03.jpg');">
+                </div>
+            </div>
+        </div>
+        <script>
+            document.querySelectorAll('.pricing-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    card.classList.toggle('flip');
+                });
+            });
+        </script>
+    </div>
+
 </section>
+
+<section class="hero"
+    style="background:linear-gradient(rgba(245, 245, 245, 0.6), rgba(245, 245, 245, 0.6)), url('/dog-walking/pricing-card-02.jpg'); background-size: cover; background-position: right center; min-height: 20vh;">
+</section>
+
 
 <!-- Areas Section -->
 <section id="areas" class="contact">
-    <h2>Areas Covered</h2>
+    <h2>📍 Areas I Cover</h2>
     <p><i class="fas fa-map-marker-alt" style="padding-right: 10px;"></i>Kent - Gravesend, Southfleet, Ebbsfleet,
         Swanscombe, Dartford & surroundings</p>
     {% include map.html %}
 </section>
 
-<!-- Contact Section -->
-<section id="contact" class="contact">
-    <h2>Contact Me!</h2>
-    <div class="download-links">
-        <p><a href="https://wa.me/447466159400?ref=DOTCOMREFERAL"><i class="fas fa-phone"
-                    style="padding-right: 10px;"></i>By WhatsApp - 07466 159400</a></p>
-        <p><a href="https://m.me/61560319745772?ref=DOTCOMREFERAL"><i class="fab fa-facebook-messenger"
-                    style="padding-right: 10px;"></i>On Messenger - Erin's Pet Sitting</a></p>
-        <p><a href="https://www.rover.com/members/erin-b-insured-dbs-checked-professional-sitter"><i class="fas fa-dog"
-                    style="padding-right: 10px;"></i>Message on Rover.com </a></p>
-    </div>
-</section>
-
 <!-- Review Section -->
-<section class="hero" id="reviews"
-    style="height: 52vh; background: linear-gradient(rgba(245, 245, 245, 0.6), rgba(245, 245, 245, 0.6)), url('gravesend-sitter-2.jpg'); background-size: cover; background-position: right center;">
-    <h2><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-            class="fas fa-star"></i></h2>
-    <div class="review" style="display: none;" data-img="gravesend-sitter-2.jpg">
-        <p>I love Erin’s pet sitting service and so does my cat Freya! Erin has been an absolute god send throughout
-            this year. She’s excellent with Freya but also with me! I always feel at ease knowing she’s going in.
-            I’d highly recommend Erin to anyone who needs someone to look after their precious pet (and have
-            actually recommended her to people myself!) thank you Erin, you’re a star ✨</p>
-        <p style="font-weight: bold;">Gemma - facebook</p>
-        <p><i class="fas fa-circle"></i><i class="far fa-circle"></i><i class="far fa-circle"></i><i
-                class="far fa-circle"></i></p>
-    </div>
-    <div class="review" style="display: none;" data-img="gravesend-sitter-3.jpg">
-        <p>Would highly recommend Erin to anyone looking for a kind and caring person they can trust in their home
-            with their pets. We've just had Erin stay at ours for 5 days to look after our dog, Milo, while we were
-            away. We got daily messages with photos and videos of how he was doing and come back to a lovely clean
-            home. We're so pleased to have found Erin and will be coming to her again for our next trip away! X</p>
-        <p style="font-weight: bold;">Ellie-May - facebook</p>
-        <p><i class="far fa-circle"></i><i class="fas fa-circle"></i><i class="far fa-circle"></i><i
-                class="far fa-circle"></i></p>
-    </div>
-    <div class="review" style="display: none;" data-img="gravesend-sitter-4.jpg">
-        <p>Erin is a dream come true! The way she communicated, loved my dogs and looked after my house was
-            absolutely amazing. I couldn't be happier to have met her and hopefully be able to work with her for all
-            my dog sits going forward. Erin, I'm so grateful🩷</p>
-        <p style="font-weight: bold;">Adel - facebook</p>
-        <p><i class="far fa-circle"></i><i class="far fa-circle"></i><i class="fas fa-circle"><i
-                    class="far fa-circle"></i></i></p>
-    </div>
-    <div class="review" style="display: none;" data-img="gravesend-sitter-5.jpg">
-        <p>Erin was recommended to us and after a meet and greet with our extremely anxious rescue, she looked after
-            him for an evening. Leaving the house is always an issue but she was very calm and took it in her stride
-            and then updated me with pics. We've booked her again and can't wait for summer when they can be out
-            playing in the garden! I have no hesitation in recommending Erin - our boy loves her!</p>
-        <p style="font-weight: bold;">Jan - facebook</p>
-        <p><i class="far fa-circle"></i><i class="far fa-circle"></i><i class="far fa-circle"></i><i
-                class="fas fa-circle"></i></p>
-    </div>
+<!-- <a href="https://g.page/r/CYOEYpNhgVlvEBM/review" class="cta-button">Write a Review</a> -->
+{% include reviews.html %}
 
-    <a href="https://g.page/r/CYOEYpNhgVlvEBM/review" class="cta-button">Write a Review</a>
-
-</section>
-
-
-
-<!-- Downloads Section -->
-<section id="downloads" class="downloads">
-    <h2>Downloads</h2>
+<!-- Contact Section -->
+<section id="book-now" class="contact">
+    <h2>📱 Ready to book care for your pet?</h2>
+    <p>I’d love to meet you and your pet for a meet and greet.</p>
     <div class="download-links">
-        <a href="downloads/Policies.pdf"><i class="fas fa-download" style="padding-right: 10px;"></i>Terms and
-            Conditions</a>
-        <a href="downloads/ProofOfInsurance.pdf"><i class="fas fa-download" style="padding-right: 10px;"></i>Proof
-            of Insurance</a>
-        <a href="downloads/FirstAid.pdf"><i class="fas fa-download" style="padding-right: 10px;"></i>First Aid
-            Certificate</a>
-        <a
-            href="mailto:erinspetsittingservices@mail.com?subject=DBS Certificate Request&body=Hello,%0APlease can I request a copy of your DBS certificate?"><i
-                class="fas fa-envelope-open-text" style="padding-right: 10px;"></i>Request DBS Certificate</a>
+        <p>
+            <a
+                href="https://wa.me/447466159400?text=Hi%2C%20I%27m%20interested%20in%20booking%20a%20dog%20walk%20with%20you!">
+                <i class="fab fa-whatsapp" style="padding-right: 10px;"></i>WhatsApp</a>
+        </p>
+        <p>
+            <a href="https://m.me/61560319745772?ref=DOTCOMREFERAL">
+                <i class="fab fa-facebook-messenger" style="padding-right: 10px;"></i>Messenger</a>
+        </p>
+        <p>
+            <a href="https://www.rover.com/members/erin-b-insured-dbs-checked-professional-sitter">
+                <i class="fas fa-dog" style="padding-right: 10px;"></i>Message via rover.com
+            </a>
+        </p>
     </div>
+    <!-- <a href="https://wa.me/447466159400?text=Hi%2C%20I%27d%20like%20to%20book%20a%20service!" class="cta-button">Book via WhatsApp</a> -->
 </section>

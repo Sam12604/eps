@@ -98,6 +98,7 @@
                             <h3>30-Minute Walk</h3>
                             <p class="price">£12</p>
                             <p>Perfect for smaller dogs or a quick midday stroll.</p>
+                            <div class="flip-icon">⤾</div>
                         </div>
                         <div class="pricing-back" style="background-image: url('/dog-walking/pricing-card-01.jpg');">
                             <div class="overlay">
@@ -114,10 +115,11 @@
                             <h3>60-Minute Walk</h3>
                             <p class="price">£19</p>
                             <p>Ideal for energetic dogs who love a longer adventure!</p>
+                            <div class="flip-icon">⤾</div>    
                         </div>
                         <div class="pricing-back" style="background-image: url('/dog-walking/pricing-card-02.jpg');">
                             <div class="overlay">
-                                <p>We’ll explore local parks and trails — perfect for dogs that love to stretch their
+                                <p>We’ll explore local parks and trails - perfect for dogs that love to stretch their
                                     legs!</p>
                             </div>
                         </div>
@@ -129,7 +131,8 @@
                         <div class="pricing-front">
                             <h3>Group Walk (up to 4 dogs)</h3>
                             <p class="price">£17 per dog</p>
-                            <p>Great for sociable dogs — friendly and fun small groups.</p>
+                            <p>Great for sociable dogs - friendly and fun small groups.</p>
+                            <div class="flip-icon">⤾</div>
                         </div>
                         <div class="pricing-back" style="background-image: url('/dog-walking/pricing-card-03.jpg');">
                             <div class="overlay">
@@ -138,18 +141,14 @@
                         </div>
                     </div>
                 </div>
-
-            </div>
-
-            <script>
-                document.querySelectorAll('.pricing-card').forEach(card => {
-                    card.addEventListener('click', () => {
-                        card.classList.toggle('flip');
+                <script>
+                    document.querySelectorAll('.pricing-card').forEach(card => {
+                        card.addEventListener('click', () => {
+                            card.classList.toggle('flip');
+                        });
                     });
-                });
-            </script>
-
-
+                </script>
+            </div>
         </section>
 
 

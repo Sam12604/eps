@@ -1,12 +1,11 @@
 <div id="map" style="z-index: 0; width: 100%; height: 30vh; min-height: 220px; border-radius: 10px; box-shadow: 0 0 0 black; max-width: 600px; margin-left: auto; margin-right: auto;"></div>
 <script>
-    const map = L.map('map').setView([51.44, 0.37], 10); // Gravesend coordinates
+    const map = L.map('map').setView([51.44, 0.37], 10);
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap contributors'
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors, © CARTO'
     }).addTo(map);
-
-    // Add areas with hover effects
+    
     const areas = {
         type: 'FeatureCollection',
         features: [

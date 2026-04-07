@@ -23,9 +23,9 @@
     };
 
     L.geoJSON(areas, {
-        style: { color: '#72866b', fillOpacity: 0.5 },
+        style: { color: '#72866b', fillOpacity: 0.25 },
         onEachFeature: (feature, layer) => {
-            layer.bindPopup(feature.properties.name); // Show area name on hover
+            layer.bindPopup(feature.properties.name);
         }
     }).addTo(map);
 </script>

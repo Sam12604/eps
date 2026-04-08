@@ -1,9 +1,13 @@
   /* General Styles */
   html {
-    max-width: 60%;
+    scroll-behavior: smooth;
+  }
+
+  main {
+    max-width: 1000px;
+    width: 75%;
     margin-left: auto;
     margin-right: auto;
-    scroll-behavior: smooth;
   }
 
   a {
@@ -132,7 +136,7 @@
 
   /* Mobile Navigation */
   @media (max-width: 1000px) {
-    html {
+    main {
       max-width: 100%;
       margin-left: auto;
       margin-right: auto;
@@ -497,7 +501,7 @@
   /* Header */
   .form-header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     margin-bottom: 0;
   }

@@ -1,31 +1,83 @@
-<div id="map" style="z-index: 0; width: 100%; height: 30vh; min-height: 220px; border-radius: 10px; box-shadow: 0 0 0 black; max-width: 600px; margin-left: auto; margin-right: auto;"></div>
-<script>
-    const map = L.map('map').setView([51.44, 0.37], 10);
+<style>
+    .service-map {
+        border-radius: var(--radius);
+        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+        border: 2px solid transparent;
+    }
 
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap contributors, © CARTO'
-    }).addTo(map);
-    
-    const areas = {
-        type: 'FeatureCollection',
-        features: [
-            {
-                type: 'Feature',
-                properties: { name: 'Areas Covered' },
-                geometry: {
-                    "type": "Polygon",
-                    "coordinates": [
-                        [[0.4787085944, 51.3802748124], [0.2201375056, 51.3915386474], [0.1926716801, 51.4305733633], [0.2191565715, 51.4789838985], [0.2905677043, 51.4540515507], [0.4324090568, 51.4458600195], [0.4620329028, 51.4549072981], [0.501269786, 51.3948438336], [0.4787085944, 51.3802748124]]
-                    ]
-                }
-            }
-        ]
-    };
+    .areas {
+        background: var(--warm-white);
+        padding: 70px 24px;
+    }
 
-    L.geoJSON(areas, {
-        style: { color: '#72866b', fillOpacity: 0.25 },
-        onEachFeature: (feature, layer) => {
-            layer.bindPopup(feature.properties.name);
-        }
-    }).addTo(map);
-</script>
+    .areas__inner {
+        max-width: 960px;
+        margin: 0 auto;
+    }
+
+    .areas__label {
+        font-family: 'DM Sans', sans-serif;
+        font-size: 0.78rem;
+        font-weight: 500;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--sage);
+        margin-bottom: 12px;
+    }
+
+    .areas__title {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+        color: var(--charcoal);
+        line-height: 1.2;
+        margin-bottom: 14px;
+    }
+
+    .areas__body {
+        font-family: 'DM Sans', sans-serif;
+        font-size: 1rem;
+        color: #666;
+        margin-bottom: 32px;
+        font-weight: 300;
+    }
+
+    .areas__tags {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 40px;
+    }
+
+    .areas__tag {
+        padding: 8px 18px;
+        background: #fff;
+        border: 1.5px solid var(--sage-light);
+        border-radius: 50px;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 0.88rem;
+        color: var(--sage-dark);
+        font-weight: 500;
+    }
+</style>
+
+<section id="areas" class="areas">
+    <div class="areas__inner">
+        <p class="areas__label">Coverage</p>
+        <h2 class="areas__title">📍 Areas I Cover</h2>
+        <p class="areas__body">Based in Gravesend, I cover a wide range of locations across north-west Kent. Covering
+            most of DA11 & DA12.</p>
+        <div class="areas__tags">
+            <span class="areas__tag">Gravesend</span>
+            <span class="areas__tag">Northfleet</span>
+            <span class="areas__tag">Ebbsfleet</span>
+            <span class="areas__tag">Swanscombe</span>
+            <span class="areas__tag">Southfleet</span>
+            <span class="areas__tag">&amp; Surroundings</span>
+        </div>
+        <iframe class="service-map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d79643.50823198822!2d0.20781287018476077!3d51.405632461674955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x49ed4f424d4ad88f%3A0x6f59816193628483!2sErins%20Pet%20Sitting%20Services!5e0!3m2!1sen!2suk!4v1780085861955!5m2!1sen!2suk"
+            width="90%" height="450px" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</section>

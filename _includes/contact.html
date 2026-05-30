@@ -1,0 +1,131 @@
+<style>
+    .contact-new {
+        background: var(--cream);
+        padding: 70px 24px;
+    }
+
+    .contact-new__inner {
+        /* max-width: 700px; */
+        margin: 0 auto;
+        text-align: center;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    @media (max-width: 600px) {
+        .contact-new__inner {
+            flex-direction: column;
+        }
+    }
+
+
+
+    .contact-new__label {
+        font-family: 'DM Sans', sans-serif;
+        font-size: 0.78rem;
+        font-weight: 500;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--sage);
+        margin-bottom: 12px;
+    }
+
+    .contact-new__title {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+        color: var(--charcoal);
+        line-height: 1.2;
+        margin-bottom: 16px;
+    }
+
+    .contact-new__sub {
+        font-family: 'DM Sans', sans-serif;
+        font-size: 1rem;
+        color: #777;
+        margin-bottom: 48px;
+        font-weight: 300;
+    }
+
+    .contact-new__links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+    }
+
+    .contact-new__link {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 16px 32px;
+        border-radius: 50px;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 0.95rem;
+        font-weight: 500;
+        text-decoration: none;
+        transition: var(--transition);
+    }
+
+    .contact-new__link--wa {
+        background: #25d366;
+        color: #fff;
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+    }
+
+    .contact-new__link--wa:hover {
+        background: #1eba57;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 28px rgba(37, 211, 102, 0.4);
+    }
+
+    .contact-new__link--fb {
+        background: #0084ff;
+        color: #fff;
+        box-shadow: 0 4px 20px rgba(0, 132, 255, 0.25);
+    }
+
+    .contact-new__link--fb:hover {
+        background: #006ee6;
+        transform: translateY(-2px);
+    }
+
+    .contact-new__link--rover {
+        background: var(--sage-dark);
+        color: #fff;
+        box-shadow: 0 4px 20px rgba(74, 92, 69, 0.25);
+    }
+
+    .contact-new__link--rover:hover {
+        background: var(--sage);
+        transform: translateY(-2px);
+    }
+</style>
+
+<section id="book-now" class="contact-new">
+    <div class="contact-new__inner">
+        <span style="display: flex; flex-direction: column;">
+            <p class="contact-new__label">Get in touch</p>
+            <h2 class="contact-new__title">📱 Ready to book care for your pet?</h2>
+            <p class="contact-new__sub">I'd love to meet you and your pet for a meet and greet. Get in touch below.</p>
+        </span>
+        <!-- <div class="contact-new__links">
+      <a href="https://wa.me/447466159400?text=Hi%2C%20I%27m%20interested%20in%20booking%20a%20dog%20walk%20with%20you!"
+         class="contact-new__link contact-new__link--wa">
+        <i class="fab fa-whatsapp"></i> WhatsApp
+      </a>
+      <a href="https://m.me/61560319745772?ref=DOTCOMREFERAL"
+         class="contact-new__link contact-new__link--fb">
+        <i class="fab fa-facebook-messenger"></i> Messenger
+      </a>
+      <a href="https://www.rover.com/members/erin-b-insured-dbs-checked-professional-sitter"
+         class="contact-new__link contact-new__link--rover">
+        <i class="fas fa-dog"></i> Message via Rover
+      </a>
+    </div> -->
+        <iframe
+            data-tally-src="https://tally.so/embed/yP2aKp?hideTitle=1&transparentBackground=1&dynamicHeight=1&formEventsForwarding=1"
+            width="100%" height="552" frameborder="0" marginheight="0" marginwidth="0" title="Get in touch!"></iframe>
+        <script>var d = document, w = "https://tally.so/widgets/embed.js", v = function () { "undefined" != typeof Tally ? Tally.loadEmbeds() : d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function (e) { e.src = e.dataset.tallySrc })) }; if ("undefined" != typeof Tally) v(); else if (d.querySelector('script[src="' + w + '"]') == null) { var s = d.createElement("script"); s.src = w, s.onload = v, s.onerror = v, d.body.appendChild(s); }</script>
+    </div>
+</section>

@@ -1,136 +1,702 @@
 ---
 layout: default
-title: Dog Walking & Sitting in Gravesend & Dartford | Erin's Pet Sitting
-description: Looking for a reliable dog walker or pet sitter in Gravesend & Dartford? Erin's Pet Sitting Services offers trusted care for your pets. Interested? Message to book a meet and greet today!
+title: Dog Walking & Sitting in Gravesend | Erin's Pet Sitting
+description: Looking for a reliable dog walker or pet sitter in Gravesend? Erin's Pet Sitting Services offers trusted care for your pets. Interested? Message to book a meet and greet today!
 ---
 
-<!-- Hero Section -->
-<section class="hero"
-    style="background:linear-gradient(rgba(245, 245, 245, 0.6), rgba(245, 245, 245, 0.6)), url('/dog-walker-dartford-hero.jpg'); background-size: cover; background-position: right center;">
-    <h1>Professional dog walking & pet sitting with love and care in and around Gravesend, Kent</h1>
-    <h2 style="padding-bottom: 20px; font-weight: normal;">Where tails are always wagging</h2>
-    <a class="cta-button" onclick="openform()">Book Now!</a>
+<style>
+  /* ─── Google Font Import ─── */
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
+  /* ─── CSS Variables ─── */
+  :root {
+    --sage:       #72866b;
+    --sage-light: #a4b89d;
+    --sage-dark:  #4a5c45;
+    /* --cream:      #f5f0e8; */
+    /* --warm-white: #faf8f4; */
+    --charcoal:   #2b2b2b;
+    --soft-brown: #8a7060;
+    --gold:       #c9a84c;
+    --radius:     16px;
+    --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* ─── VIDEO HERO ─── */
+  .hero-video {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    min-height: 460px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+  }
+
+  .hero-video video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 80vh;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+  }
+
+  .hero-video::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(
+        to bottom,
+        rgba(43, 43, 43, 0.35) 0%,
+        rgba(43, 43, 43, 0.15) 40%,
+        rgba(114, 134, 107, 0.55) 80%,
+        rgba(74, 92, 69, 0.85) 100%
+      );
+    z-index: 1;
+  }
+
+  .hero-video__content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+    padding: 0 24px;
+    max-width: 760px;
+    animation: heroFadeUp 1.1s ease both;
+  }
+
+  @keyframes heroFadeUp {
+    from { opacity: 0; transform: translateY(32px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-video__eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--sage-light);
+    margin-bottom: 18px;
+    animation: heroFadeUp 1.1s 0.15s ease both;
+  }
+
+  .hero-video__title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2.4rem, 6vw, 4.2rem);
+    font-weight: 700;
+    line-height: 1.12;
+    margin-bottom: 18px;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+    animation: heroFadeUp 1.1s 0.25s ease both;
+  }
+
+  .hero-video__title em {
+    font-style: italic;
+    color: var(--sage-light);
+  }
+
+  .hero-video__sub {
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(1rem, 2.4vw, 1.2rem);
+    font-weight: 300;
+    color: rgba(255,255,255,0.88);
+    margin-bottom: 38px;
+    animation: heroFadeUp 1.1s 0.35s ease both;
+  }
+
+  .hero-video__cta {
+    display: inline-block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    padding: 16px 44px;
+    background: var(--gold);
+    color: #fff;
+    border-radius: 50px;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: var(--transition);
+    box-shadow: 0 4px 24px rgba(201,168,76,0.45);
+    animation: heroFadeUp 1.1s 0.45s ease both;
+  }
+
+  .hero-video__cta:hover {
+    background: #b8952f;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(201,168,76,0.55);
+  }
+
+  /* Scroll indicator */
+  .hero-scroll {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.6);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    animation: heroFadeUp 1.1s 0.7s ease both;
+  }
+
+  .hero-scroll__arrow {
+    width: 20px;
+    height: 20px;
+    border-right: 2px solid rgba(255,255,255,0.5);
+    border-bottom: 2px solid rgba(255,255,255,0.5);
+    transform: rotate(45deg);
+    animation: bounce 1.6s ease-in-out infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: rotate(45deg) translateY(0); }
+    50%       { transform: rotate(45deg) translateY(5px) translateX(5px); }
+  }
+
+  /* ─── TRUST STRIP ─── */
+  .trust-strip {
+    background: var(--sage-dark);
+    color: #fff;
+    padding: 18px 24px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+  }
+
+  .trust-strip__item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.9);
+  }
+
+  .trust-strip__item span {
+    font-size: 1.1em;
+  }
+
+  /* ─── ABOUT SECTION ─── */
+  .about {
+    background: var(--warm-white);
+    padding: 70px 24px;
+  }
+
+  .about__inner {
+    max-width: 960px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 72px;
+    align-items: center;
+  }
+
+  @media (max-width: 720px) {
+    .about__inner { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  .about__label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 14px;
+  }
+
+  .about__title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 700;
+    color: var(--charcoal);
+    line-height: 1.2;
+    margin-bottom: 24px;
+  }
+
+  .about__title em {
+    font-style: italic;
+    color: var(--sage);
+  }
+
+  .about__body {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.02rem;
+    line-height: 1.75;
+    color: #555;
+    font-weight: 300;
+  }
+
+  .about__body p + p { margin-top: 14px; }
+
+  .about__badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 28px;
+  }
+
+  .about__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 16px;
+    background: var(--sage);
+    color: #fff;
+    border-radius: 50px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 500;
+  }
+
+  .about__image-wrap {
+    position: relative;
+  }
+
+  .about__image-wrap img {
+    width: 100%;
+    border-radius: var(--radius);
+    object-fit: cover;
+    aspect-ratio: 4/5;
+    display: block;
+  }
+
+  .about__image-wrap::before {
+    content: '';
+    position: absolute;
+    inset: -12px -12px auto auto;
+    width: 60%;
+    height: 60%;
+    border: 3px solid var(--gold);
+    border-radius: var(--radius);
+    z-index: -1;
+  }
+
+  /* ─── PRICING SECTION ─── */
+  .pricing-new {
+    background: var(--cream);
+    padding: 70px 24px;
+  }
+
+  .pricing-new__header {
+    text-align: center;
+    max-width: 560px;
+    margin: 0 auto 64px;
+  }
+
+  .pricing-new__label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 12px;
+  }
+
+  .pricing-new__title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    color: var(--charcoal);
+    line-height: 1.2;
+    margin-bottom: 14px;
+  }
+
+  .pricing-new__sub {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    color: #777;
+    font-weight: 300;
+  }
+
+  .pricing-new__grid {
+    max-width: 1040px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+  }
+
+  .pcard {
+    background: #fff;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    border: 2px solid transparent;
+  }
+
+  .pcard:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(114,134,107,0.2);
+    border-color: var(--sage-light);
+  }
+
+  .pcard--featured {
+    background: var(--sage-dark);
+    color: #fff;
+    border-color: var(--sage-dark);
+    position: relative;
+  }
+
+  .pcard__badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: var(--gold);
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 50px;
+  }
+
+  .pcard__icon {
+    font-size: 2.2rem;
+    padding: 32px 28px 0;
+  }
+
+  .pcard__name {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--charcoal);
+    padding: 16px 28px 0;
+  }
+
+  .pcard--featured .pcard__name {
+    color: #fff;
+  }
+
+  .pcard__price {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--sage-dark);
+    padding: 10px 28px 0;
+    line-height: 1;
+  }
+
+  .pcard--featured .pcard__price {
+    color: var(--gold);
+  }
+
+  .pcard__price-note {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+    color: #999;
+    padding: 4px 28px 0;
+    font-weight: 400;
+  }
+
+  .pcard--featured .pcard__price-note {
+    color: rgba(255,255,255,0.6);
+  }
+
+  .pcard__divider {
+    height: 1px;
+    background: var(--cream);
+    margin: 10px 28px;
+  }
+
+  .pcard--featured .pcard__divider {
+    background: rgba(255,255,255,0.15);
+  }
+
+  .pcard__features {
+    list-style: none;
+    padding: 10px 28px;
+    flex: 1;
+  }
+
+  .pcard__features li {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    color: #666;
+    padding: 6px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-weight: 400;
+    line-height: 1.4;
+  }
+
+  .pcard--featured .pcard__features li {
+    color: rgba(255,255,255,0.8);
+  }
+
+  .pcard__features li::before {
+    content: '✓';
+    color: var(--sage);
+    font-weight: 700;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .pcard--featured .pcard__features li::before {
+    color: var(--gold);
+  }
+
+  .pcard__cta {
+    margin: 24px 28px 32px;
+    display: block;
+    text-align: center;
+    padding: 13px 24px;
+    border-radius: 50px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--transition);
+    background: var(--cream);
+    color: var(--sage-dark);
+    border: 2px solid var(--sage-light);
+  }
+
+  .pcard__cta:hover {
+    background: var(--sage);
+    color: #fff;
+    border-color: var(--sage);
+  }
+
+  .pcard--featured .pcard__cta {
+    background: var(--gold);
+    color: #fff;
+    border-color: var(--gold);
+  }
+
+  .pcard--featured .pcard__cta:hover {
+    background: #b8952f;
+    border-color: #b8952f;
+  }
+
+  /* ─── PHOTO BAND ─── */
+  .photo-band {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    height: 280px;
+    overflow: hidden;
+  }
+
+  .photo-band__item {
+    overflow: hidden;
+    position: relative;
+  }
+
+  .photo-band__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+
+  .photo-band__item:hover img {
+    transform: scale(1.06);
+  }
+
+  @media (max-width: 600px) {
+    .photo-band { height: 160px; }
+    .trust-strip { gap: 16px; }
+    .contact-new__links { flex-direction: column; align-items: center; }
+  }
+</style>
+
+<!-- ─── VIDEO HERO ─── -->
+<section class="hero-video">
+  <video
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="metadataS"
+    poster="/dog-walker-dartford-hero.jpg"
+    aria-label="Video of dogs being walked in the park">
+    <source src="/media/erins-pet-sitting-services-cover.mp4" type="video/mp4">
+  </video>
+
+  <div class="hero-video__content">
+    <p class="hero-video__eyebrow">Gravesend, Kent</p>
+    <h1 class="hero-video__title">
+      Professional dog walking<br>
+      &amp; pet services with<br>
+      <em>love and care</em>
+    </h1>
+    <p class="hero-video__sub">Where tails are always wagging 🐾</p>
+    <a href="#book-now" class="hero-video__cta">Book a Meet &amp; Greet</a>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="hero-scroll__arrow"></div>
+    <span>Scroll</span>
+  </div>
 </section>
 
+<!-- ─── TRUST STRIP ─── -->
+<div class="trust-strip">
+  <div class="trust-strip__item"><span>🛡️</span> Fully Insured</div>
+  <div class="trust-strip__item"><span>✅</span> DBS Checked</div>
+  <div class="trust-strip__item"><span>⭐</span> 5-Star Reviews</div>
+  <div class="trust-strip__item"><span>📍</span> Gravesend</div>
+  <div class="trust-strip__item"><span>🐶</span> Solo &amp; Group Walks</div>
+</div>
 
-
-<!-- About Section -->
-<section id="about" class="contact">
-    <h2>What I offer</h2>
-
-    <p>As a trustworthy and passionate pet sitter, I provide a variety of services such as dog walking, pet sitting,
-        and drop-in visits to make sure your pets receive the care they need while you're away.
-        <br>
-        My genuine love for animals drives me to give them the attention and affection they deserve. Whether you
-        need a midday walk, an overnight stay, or just a quick check-in, I will make sure your pets feel safe,
-        happy, and loved.
-        <br>
-        I am fully insured and DBS checked, giving you peace of mind that your pets and home are in good hands. I
-        recognise how much your pets mean to you, and I treat every furry companion as if they were my own.
-    </p>
+<!-- ─── ABOUT SECTION ─── -->
+<section id="about" class="about">
+  <div class="about__inner">
+    <div class="about__text">
+      <p class="about__label">About Erin</p>
+      <h2 class="about__title">A <em>passionate</em> carer for your four-legged family</h2>
+      <div class="about__body">
+        <p>
+          As a trustworthy and passionate pet sitter, I provide dog walking, pet sitting, and drop in visits - making sure your pets receive the care they deserve while you're away.
+        </p>
+        <p>
+          My genuine love for animals means every furry companion gets the attention and affection they deserve. Whether you need a midday walk, an overnight stay, or just a quick check-in, I'll make sure your pets feel safe, happy, and loved.
+        </p>
+      </div>
+      <!-- <div class="about__badges">
+        <span class="about__badge">🛡️ Fully Insured</span>
+        <span class="about__badge">✅ DBS Checked</span>
+        <span class="about__badge">🎓 First Aid Qualified</span>
+      </div> -->
+    </div>
+    <div class="about__image-wrap">
+      <img src="/media/erin.jpeg" alt="Erin with a dog she cares for in Gravesend">
+    </div>
+  </div>
 </section>
 
+<!-- ─── PRICING SECTION ─── -->
+<section id="services" class="pricing-new">
+  <div class="pricing-new__header">
+    <p class="pricing-new__label">Services &amp; Pricing</p>
+    <h2 class="pricing-new__title">Simple, transparent pricing</h2>
+    <p class="pricing-new__sub">All services include updates, photos, and lots of love</p>
+  </div>
 
-<!-- Services Section -->
-<section id="services" class="pricing">
-    <div class="pricing-container">
+  <div class="pricing-new__grid">
 
-        <div class="pricing-card">
-            <div class="pricing-inner">
-                <div class="pricing-front">
-                    <h3>Solo Dog Walking</h3>
-                    <p class="price">From £12</p>
-                    <div class="flip-icon">⤾</div>
-                </div>
-                <div class="pricing-back" style="background-image: url('/dog-walking/pricing-card-01.jpg');">
-                </div>
-            </div>
-        </div>
-
-        <div class="pricing-card">
-            <div class="pricing-inner">
-                <div class="pricing-front">
-                    <h3>Group Walk</h3>
-                    <p class="price">£17 for 60 minutes</p>
-                    <div class="flip-icon">⤾</div>
-                </div>
-                <div class="pricing-back" style="background-image: url('/dog-walking/pricing-card-03.jpg');">
-                </div>
-            </div>
-        </div>
-
-        <div class="pricing-card">
-            <div class="pricing-inner">
-                <div class="pricing-front">
-                    <h3>Overnights</h3>
-                    <p class="price">£40 per night</p>
-                    <p>+£12 per additional dog</p>
-                    <div class="flip-icon">⤾</div>
-                </div>
-                <div class="pricing-back" style="background-image: url('/dog-walking/pricing-card-03.jpg');">
-                </div>
-            </div>
-        </div>
-
-        <div class="pricing-card">
-            <div class="pricing-inner">
-                <div class="pricing-front">
-                    <h3>Day Sitting</h3>
-                    <p class="price">£15 per hour</p>
-                    <p>Minimum 3 hours</p>
-                    <div class="flip-icon">⤾</div>
-                </div>
-                <div class="pricing-back" style="background-image: url('/dog-walking/pricing-card-03.jpg');">
-                </div>
-            </div>
-        </div>
-        <script>
-            document.querySelectorAll('.pricing-card').forEach(card => {
-                card.addEventListener('click', () => {
-                    card.classList.toggle('flip');
-                });
-            });
-        </script>
+    <!-- Solo Walk -->
+    <div class="pcard">
+      <div class="pcard__icon">🦮</div>
+      <div class="pcard__name">Solo Dog Walking</div>
+      <div class="pcard__price">From £12</div>
+      <div class="pcard__price-note">per walk</div>
+      <div class="pcard__divider"></div>
+      <ul class="pcard__features">
+        <li>One-to-one attention</li>
+        <li>Tailored route for your dog</li>
+        <li>Photo updates during the walk</li>
+        <li>Perfect for anxious dogs</li>
+      </ul>
+      <!-- <a class="pcard__cta" onclick="openform()">Book Now</a> -->
     </div>
 
-</section>
-
-<section class="hero"
-    style="background:linear-gradient(rgba(245, 245, 245, 0.6), rgba(245, 245, 245, 0.6)), url('/dog-walking/pricing-card-02.jpg'); background-size: cover; background-position: right center; min-height: 20vh;">
-</section>
-
-
-<!-- Areas Section -->
-<section id="areas" class="contact">
-    <h2>📍 Areas I Cover</h2>
-    <p><i class="fas fa-map-marker-alt" style="padding-right: 10px;"></i>Kent - Gravesend, Southfleet, Ebbsfleet,
-        Swanscombe, Dartford & surroundings</p>
-    {% include map.html %}
-</section>
-
-<!-- Review Section -->
-<!-- <a href="https://g.page/r/CYOEYpNhgVlvEBM/review" class="cta-button">Write a Review</a> -->
-{% include reviews.html %}
-
-<!-- Contact Section -->
-<section id="book-now" class="contact">
-    <h2>📱 Ready to book care for your pet?</h2>
-    <p>I’d love to meet you and your pet for a meet and greet.</p>
-    <div class="download-links">
-        <p>
-            <a
-                href="https://wa.me/447466159400?text=Hi%2C%20I%27m%20interested%20in%20booking%20a%20dog%20walk%20with%20you!">
-                <i class="fab fa-whatsapp" style="padding-right: 10px;"></i>WhatsApp</a>
-        </p>
-        <p>
-            <a href="https://m.me/61560319745772?ref=DOTCOMREFERAL">
-                <i class="fab fa-facebook-messenger" style="padding-right: 10px;"></i>Messenger</a>
-        </p>
-        <p>
-            <a href="https://www.rover.com/members/erin-b-insured-dbs-checked-professional-sitter">
-                <i class="fas fa-dog" style="padding-right: 10px;"></i>Message via rover.com
-            </a>
-        </p>
+    <!-- Group Walk - featured -->
+    <div class="pcard">
+      <div class="pcard__icon">🐕‍🦺</div>
+      <div class="pcard__name">Group Walk</div>
+      <div class="pcard__price">£17</div>
+      <div class="pcard__price-note">for 60 minutes</div>
+      <div class="pcard__divider"></div>
+      <ul class="pcard__features">
+        <li>Small group walks</li>
+        <li>Great for socialisation</li>
+        <li>60-minute adventure</li>
+        <li>Photo &amp; video updates</li>
+      </ul>
+      <!-- <a class="pcard__cta" onclick="openform()">Book Now</a> -->
     </div>
-    <!-- <a href="https://wa.me/447466159400?text=Hi%2C%20I%27d%20like%20to%20book%20a%20service!" class="cta-button">Book via WhatsApp</a> -->
+
+    <!-- Overnights -->
+    <div class="pcard">
+      <div class="pcard__icon">🌙</div>
+      <div class="pcard__name">Overnight Sitting</div>
+      <div class="pcard__price">£40</div>
+      <div class="pcard__price-note">per night · +£12 per extra dog</div>
+      <div class="pcard__divider"></div>
+      <ul class="pcard__features">
+        <li>Stay at your home</li>
+        <li>Familiar environment for your pet</li>
+        <li>Evening &amp; morning care</li>
+        <li>Daily check-in messages</li>
+      </ul>
+      <!-- <a class="pcard__cta" onclick="openform()">Book Now</a> -->
+    </div>
+
+    <!-- Day Sitting -->
+    <div class="pcard">
+      <div class="pcard__icon">☀️</div>
+      <div class="pcard__name">Day Sitting</div>
+      <div class="pcard__price">£15</div>
+      <div class="pcard__price-note">per hour · minimum 3 hours</div>
+      <div class="pcard__divider"></div>
+      <ul class="pcard__features">
+        <li>In-home daytime care</li>
+        <li>Feeding &amp; enrichment</li>
+        <li>Regular photo updates</li>
+        <li>Ideal for working days</li>
+      </ul>
+      <!-- <a class="pcard__cta" onclick="openform()">Book Now</a> -->
+    </div>
+
+  </div>
 </section>
+
+<!-- ─── PHOTO BAND ─── -->
+<div class="photo-band">
+  <div class="photo-band__item">
+    <img src="/dog-walking/pricing-card-01.jpg" alt="Dog walking in Gravesend">
+  </div>
+  <div class="photo-band__item">
+    <img src="/dog-walker-dartford-hero.jpg" alt="Pet sitting in Dartford">
+  </div>
+  <div class="photo-band__item">
+    <img src="/dog-walking/pricing-card-02.jpg" alt="Dog care in Northfleet and Swanscombe">
+  </div>
+</div>
+
+<!-- ─── AREAS SECTION ─── -->
+{% include map.html %}
+
+
+<!-- ─── REVIEWS SECTION ─── -->
+<section class="reviews">
+  <div class="reviews__header">
+    <p class="reviews__label">Testimonials</p>
+    <h2 class="reviews__title">What pet owners say</h2>
+  </div>
+
+  <div class="reviews__grid">
+    {% include reviews.html %}
+  </div>
+</section>
+
+<!-- ─── CONTACT SECTION ─── -->
+{% include contact.html %}
+

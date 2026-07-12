@@ -1,0 +1,52 @@
+<section class="hero-video">
+    <!-- HLS.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+
+    <video id="hero-video" autoplay muted loop playsinline poster="/dog-walker-dartford-hero.jpg"
+        aria-label="Video of dogs being walked in the park">
+    </video>
+
+    <script>
+        (function () {
+            var video = document.getElementById('hero-video');
+            var src = 'https://erinspetsittingservices.co.uk/media/video/hero-video/master.m3u8';
+
+            if (Hls.isSupported()) {
+                var hls = new Hls();
+                hls.loadSource(src);
+                hls.attachMedia(video);
+                hls.on(Hls.Events.MANIFEST_PARSED, function () {
+                    video.play();
+                });
+            } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                // native HLS support (Safari)
+                video.src = src;
+                video.addEventListener('loadedmetadata', function () {
+                    video.play();
+                });
+            }
+        })();
+    </script>
+
+    <div class="hero-video__content">
+        <p class="hero-video__eyebrow">{{ include.1 | default: 'Gravesend, Kent' }}</p>
+        <h1 class="hero-video__title">
+            {{ include.2 | default: 'Professional dog walking<br>&amp; pet services with<br><em>love and care</em>' }}
+        </h1>
+        <p class="hero-video__sub">{{ include.3 | default: 'Where tails are always wagging 🐾' }}</p>
+        <a href="#book-now" class="hero-video__cta">{{ include.btn | default: 'Book a Meet &amp; Greet' }}</a>
+    </div>
+
+    <div class="hero-scroll">
+        <div class="hero-scroll__arrow"></div>
+        <span>Scroll</span>
+    </div>
+</section>
+
+<div class="trust-strip">
+    <div class="trust-strip__item"><span>🛡️</span> Fully Insured</div>
+    <div class="trust-strip__item"><span>✅</span> DBS Checked</div>
+    <div class="trust-strip__item"><span>⭐</span> 5-Star Reviews</div>
+    <div class="trust-strip__item"><span>📍</span> Gravesend</div>
+    <div class="trust-strip__item"><span>🐶</span> Solo &amp; Group Walks</div>
+</div>

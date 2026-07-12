@@ -106,8 +106,8 @@
     <div class="contact-new__inner">
         <span style="display: flex; flex-direction: column;">
             <p class="contact-new__label">Get in touch</p>
-            <h2 class="contact-new__title">📱 Ready to book care for your pet?</h2>
-            <p class="contact-new__sub">I'd love to meet you and your pet for a meet and greet. Get in touch below.</p>
+            <h2 class="contact-new__title">{{ include.title | default: 'Ready to book care for your pet?' }}</h2>
+            <p class="contact-new__sub">{{ include.subtitle | default: "I'd love to meet you and your pet for a meet and greet. Get in touch below." }}</p>
         </span>
         <!-- <div class="contact-new__links">
       <a href="https://wa.me/447466159400?text=Hi%2C%20I%27m%20interested%20in%20booking%20a%20dog%20walk%20with%20you!"
@@ -124,7 +124,7 @@
       </a>
     </div> -->
         <iframe
-            data-tally-src="https://tally.so/embed/yP2aKp?hideTitle=1&transparentBackground=1&dynamicHeight=1&formEventsForwarding=1"
+            data-tally-src="https://tally.so/embed/{{ include.tally | default: site.tallycontactdef }}?hideTitle=1&transparentBackground=1&dynamicHeight=1&formEventsForwarding=1"
             width="100%" height="552" frameborder="0" marginheight="0" marginwidth="0" title="Get in touch!"></iframe>
         <script>var d = document, w = "https://tally.so/widgets/embed.js", v = function () { "undefined" != typeof Tally ? Tally.loadEmbeds() : d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function (e) { e.src = e.dataset.tallySrc })) }; if ("undefined" != typeof Tally) v(); else if (d.querySelector('script[src="' + w + '"]') == null) { var s = d.createElement("script"); s.src = w, s.onload = v, s.onerror = v, d.body.appendChild(s); }</script>
     </div>

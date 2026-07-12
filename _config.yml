@@ -8,6 +8,17 @@ baseurl: ""
 author:
   name: "Erin's Pet Sitting Services"
   email: "erinspetsittingservices@mail.com"
+  tel: "07466159400"
+  whatsapp: "https://wa.me/447466159400"
+  messenger: "https://m.me/61560319745772"
+  facebook: "https://www.facebook.com/people/Erins-Pet-Sitting-Services/61560319745772"
+  instagram: "https://www.instagram.com/ErinsPetSittingServicesKent"
+
+links:
+  privacy: "/info/privacy-policy"
+
+
+tallycontactdef: "yP2aKp"
 
 # Build settings
 markdown: kramdown

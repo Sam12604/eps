@@ -1,8 +1,11 @@
 <!-- Header -->
 <header>
-    <div class="logo"><a href="/" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit;"><img src="/erins-pet-sitting-services.jpg"
-                style="height: 60px; border-radius: 50%;" alt="Erin's Pet Sitting Services Logo">
-        <p style="font-family: 'Lora', sans-serif; font-size: 18px;">Erin's Pet Sitting Services</p></a>
+    <div class="logo"><a href="/"
+            style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit;"><img
+                src="/erins-pet-sitting-services.jpg" style="height: 60px; border-radius: 50%;"
+                alt="Erin's Pet Sitting Services Logo">
+            <p style="font-family: 'Lora', sans-serif; font-size: 18px;">Erin's Pet Sitting Services</p>
+        </a>
     </div>
 
     <!-- Navigation -->
@@ -11,14 +14,23 @@
             <li><a href="/#services"><i class="fas fa-arrow-circle-right" style="margin-right: 5px;"></i>Our
                     Services</a>
             </li>
-            <li><a href="/certificates-policies"><i class="fas fa-arrow-circle-right" style="margin-right: 5px;"></i>Certificates and Policies</a>
+            <li><a href="/certificates-policies"><i class="fas fa-arrow-circle-right"
+                        style="margin-right: 5px;"></i>Certificates and Policies</a>
             </li>
             <li><a href="/join"><i class="fas fa-arrow-circle-right" style="margin-right: 5px;"></i>Join Now!</a>
+            </li>
+            <li>
+                <div class="social-links" style="margin-top: 0;">
+                    <a href="{{  site.author.facebook  }}" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="{{  site.author.messenger  }}" aria-label="Messenger"><i
+                            class="fab fa-facebook-messenger"></i></a>
+                    <a href="{{  site.author.whatsapp  }}" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
             </li>
         </ul>
     </nav>
 
-        <!-- Hamburger Menu for Mobile -->
+    <!-- Hamburger Menu for Mobile -->
     <button class="hamburger" aria-label="Toggle navigation">
         <span class="hamburger-box">
             <span class="hamburger-inner"></span>

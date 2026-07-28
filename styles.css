@@ -792,27 +792,47 @@ textarea {
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  padding: 10px 14px;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 8px;
   background-color: #ffffff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  font-size: 0.95rem;
+  color: #1a1a1a;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #395230;
+  box-shadow: 0 0 0 3px rgba(57, 82, 48, 0.12);
 }
 
 button {
-  padding: 10px 20px;
+  padding: 10px 22px;
   background-color: #395230;
-  color: whitesmoke;
+  color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s, transform 0.3s;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  transition: background-color 0.2s, box-shadow 0.2s, transform 0.2s;
 }
 
 button:hover {
   background-color: #4d6b41;
+  box-shadow: 0 4px 12px rgba(57, 82, 48, 0.25);
   transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
 }
 
 /* Footer */

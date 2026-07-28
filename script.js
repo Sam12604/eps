@@ -14,3 +14,19 @@ document.addEventListener('click', (event) => {
     hamburger.classList.remove('active');
   }
 });
+
+(function () {
+    const raw = localStorage.getItem("notification");
+    if (!raw) return;
+
+    localStorage.removeItem("notification");
+
+    let notification;
+    try {
+        notification = JSON.parse(raw);
+    } catch {
+        return;
+    }
+
+    NotificationBanner.addOrUpdate(Date.now(), notification.message, notification.type)
+})();

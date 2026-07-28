@@ -23,3 +23,5 @@ tallycontactdef: "yP2aKp"
 # Build settings
 markdown: kramdown
 permalink: /:title/
+
+turnstile: "0x4AAAAAAD6vHe2h1yZO4jag"

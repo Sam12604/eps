@@ -1,0 +1,320 @@
+---
+layout: default
+title: Document Signing | Erin's Pet Sitting Services
+description:
+---
+
+<style>
+    p {
+        margin-top: 2px;
+        margin-bottom: 2px;
+    }
+
+    canvas {
+        border: 1px solid black;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    input,
+    button {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+    form {
+        width: 95%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    @keyframes spin {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+</style>
+
+<form>
+    <h1 id="title">Loading...</h1>
+    <p>Please read and sign for the document below. You will receive your signed copy shortly by email.</p>
+
+    <button id="readDocBtn" type="button" disabled style="width: 60%; margin: 50px auto;">
+        <span id="readDocBtnText">Loading document...</span>
+        <span id="readDocSpinner"
+            style="display: inline-block; margin-left: 8px; width: 12px; height: 12px; border: 2px solid currentColor; border-top-color: transparent; border-radius: 50%; animation: spin 0.7s linear infinite;"></span>
+    </button>
+
+    <label for="name">First Name</label>
+    <input type="text" name="name" id="name" placeholder="Your first name" required />
+
+    <label for="lname">Last Name</label>
+    <input type="text" name="lname" id="lname" placeholder="Your last name" required />
+
+    <label for="pname">Pet's Name</label>
+    <input type="text" name="pname" id="pname" placeholder="Your pet's name" required />
+
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email" placeholder="Your email" required />
+
+    <div class="cf-turnstile"></div>
+
+    {% include pad.html %}
+
+</form>
+
+<script>
+    (function () {
+
+        const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzyLDkQgCViULwXJU539ql2dSr630DNopXMBqQIsuwBSoeMsbBsb_JLzFSxepjLC50/exec";
+        const TURNSTILE_SITEKEY = "{{ site.turnstile  }}";
+        const DOC_OPEN_GRACE_MS = 5000;
+
+        const pdfCache = {};
+        let documentOpened = { opened: false, timestamp: null };
+        let turnstileWidgetId = null;
+
+        function onTurnstileLoad() {
+            if (turnstileWidgetId !== null) {
+                turnstile.remove(turnstileWidgetId);
+            }
+            turnstileWidgetId = turnstile.render(".cf-turnstile", {
+                sitekey: TURNSTILE_SITEKEY,
+                cData: token
+            });
+        }
+
+        function resetTurnstile() {
+            if (turnstileWidgetId !== null) {
+                turnstile.reset(turnstileWidgetId);
+            }
+        }
+
+        function isValidTurnstileToken(value) {
+            if (!value || typeof value !== "string") return false;
+            return /^[A-Za-z0-9._-]{20,2048}$/.test(value.trim());
+        }
+
+        window.onTurnstileLoad = onTurnstileLoad;
+        window.checkConditions = checkConditions;
+
+        async function getClientIp(retries = 3) {
+            for (let i = 0; i < retries; i++) {
+                try {
+                    const res = await fetch("https://api.ipify.org?format=json");
+                    const data = await res.json();
+                    if (data.ip) return data.ip;
+                } catch {
+                    continue;
+                }
+            }
+            return null;
+        }
+
+        function buildFormData(fields) {
+            const formData = new FormData();
+            for (const [key, value] of Object.entries(fields)) {
+                formData.append(key, value ?? "");
+            }
+            return formData;
+        }
+
+        async function postToAppsScript(fields, retries = 3, delayMs = 1000) {
+            for (let attempt = 1; attempt <= retries; attempt++) {
+                try {
+                    const response = await fetch(APPS_SCRIPT_URL, {
+                        method: "POST",
+                        body: buildFormData(fields),
+                        redirect: "follow",
+                    });
+                    if (response.ok) return response;
+                    console.warn(`Attempt ${attempt} returned status: ${response.status}`);
+                } catch (err) {
+                    console.warn(`Attempt ${attempt} failed:`, err.message);
+                    if (attempt === retries) throw err;
+                }
+                await new Promise(resolve => setTimeout(resolve, delayMs * attempt));
+            }
+        }
+
+        function sanitiseText(value) {
+            return value.trim()
+                .replace(/<[^>]*>/g, "")
+                .replace(/^[=+\-@\t\r]/, "'$&");
+        }
+
+        function isValidEmail(value) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+        }
+
+        function getFieldValues() {
+            return {
+                name: sanitiseText(document.getElementById("name").value),
+                lname: sanitiseText(document.getElementById("lname").value),
+                pname: sanitiseText(document.getElementById("pname").value),
+                email: sanitiseText(document.getElementById("email").value),
+                pad: !signaturePad.isEmpty()
+            };
+        }
+
+        function checkConditions() {
+            const { name, lname, email, pad } = getFieldValues();
+            const checkbox = document.getElementById("privacyAgreement").checked;
+            const sigAcknowledge = document.getElementById("sigAcknowledge").checked;
+            document.getElementById("submitBtn").disabled =
+                !(checkbox && sigAcknowledge && name && lname && isValidEmail(email) && pad);
+        }
+
+        ["privacyAgreement", "sigAcknowledge"].forEach(id => {
+            document.getElementById(id).addEventListener("change", checkConditions);
+        });
+
+        ["name", "lname", "email"].forEach(id => {
+            document.getElementById(id).addEventListener("input", checkConditions);
+        });
+
+        signaturePad.addEventListener("endStroke", checkConditions);
+
+        async function openDocumentAndNotify(token) {
+            const cached = pdfCache[token];
+            if (!cached) {
+                alert("PDF is not ready yet, please wait a moment.");
+                return;
+            }
+
+            window.open(URL.createObjectURL(cached), "_blank");
+            documentOpened = { opened: true, timestamp: Date.now() };
+
+            await postToAppsScript({
+                action: "pdfOpened",
+                token,
+                clientIp: await getClientIp(),
+            });
+        }
+
+        document.querySelector("form").addEventListener("submit", async function (e) {
+            e.preventDefault();
+
+            const turnstileToken = document.querySelector('[name="cf-turnstile-response"]')?.value;
+            if (!isValidTurnstileToken(turnstileToken)) {
+                alert("Please complete the CAPTCHA before submitting.");
+                return;
+            }
+
+            const { opened, timestamp } = documentOpened;
+            if (!opened || !(timestamp + DOC_OPEN_GRACE_MS < Date.now())) {
+                alert("Please fully read the document before submitting.");
+                return;
+            }
+
+            const { name, lname, pname, email } = getFieldValues();
+
+            showLoading("Processing\nThis can take up to 30 seconds");
+
+            let txt;
+            try {
+                const res = await postToAppsScript({
+                    action: "submitSignature",
+                    token,
+                    name, lname, pname, email,
+                    turnstileToken,
+                    clientIp: await getClientIp(),
+                    signature: signaturePad.toDataURL(),
+                });
+                txt = await res.text();
+            } catch (err) {
+                txt = "error";
+            } finally {
+                hideLoading();
+                resetTurnstile();
+            }
+
+            if (txt === "OK") {
+                localStorage.setItem("notification", JSON.stringify({
+                    type: "info",
+                    message: `Thank you ${name || ''}, Your document has been signed successfully! You will receive a copy by email shortly.`
+                }));
+                window.location.href = "/";
+            } else if (txt.includes("CAPTCHA")) {
+                alert("CAPTCHA verification failed. Please complete the CAPTCHA again and resubmit.");
+            } else if (txt.includes("Token mismatch")) {
+                alert("Something went wrong. Please refresh the page and try again.");
+            } else if (txt === "error") {
+                alert("Could not reach the server. Please wait a moment and try again.");
+            } else {
+                alert("Something went wrong. Please contact us directly if this continues.");
+            }
+        });
+
+        function getQueryParam(name) {
+            return new URLSearchParams(window.location.search).get(name);
+        }
+
+        async function recordLinkOpened(token) {
+            try {
+                showLoading("Loading document\nThis can take up to 30 seconds");
+
+                const res = await postToAppsScript({
+                    action: "linkOpened",
+                    token,
+                    clientIp: await getClientIp(),
+                });
+
+                const text = await res.text();
+                let data;
+                try {
+                    data = JSON.parse(text);
+                } catch {
+                    console.error("Failed to parse JSON:", text);
+                    localStorage.setItem("notification", JSON.stringify({
+                        type: "severe",
+                        message: "Invalid link, your link has expired or this document has already been signed."
+                    }));
+                    window.location.href = "/";
+                    return null;
+                }
+
+                document.getElementById("title").innerText = data.documentName;
+                hideLoading();
+
+                if (data.doc) {
+                    const byteCharacters = atob(data.doc);
+                    const byteArray = new Uint8Array(byteCharacters.length);
+                    for (let i = 0; i < byteCharacters.length; i++) {
+                        byteArray[i] = byteCharacters.charCodeAt(i);
+                    }
+                    pdfCache[token] = new Blob([byteArray], { type: "application/pdf" });
+
+                    document.getElementById("readDocBtn").disabled = false;
+                    document.getElementById("readDocBtnText").textContent = "Read document";
+                    document.getElementById("readDocSpinner").style.display = "none";
+                }
+
+                return data;
+            } catch (err) {
+                console.error("Error recording link opened:", err);
+                return null;
+            }
+        }
+
+        const token = getQueryParam("token");
+        if (token) {
+            recordLinkOpened(token);
+            document.getElementById("readDocBtn")
+                .addEventListener("click", () => openDocumentAndNotify(token));
+        } else {
+            localStorage.setItem("notification", JSON.stringify({
+                type: "warning",
+                message: "Invalid link"
+            }));
+            window.location.href = "/";
+        }
+
+    })();
+</script>

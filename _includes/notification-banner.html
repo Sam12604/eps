@@ -1,0 +1,139 @@
+<div id="notification-container"></div>
+<script>
+    const NotificationBanner = (() => {
+    const container =
+        document.getElementById("notification-container") ||
+        (() => {
+            const div = document.createElement("div");
+            div.id = "notification-container";
+            document.body.prepend(div);
+            return div;
+        })();
+
+    const validTypes = ["info", "warning", "severe"];
+
+    function addOrUpdate(id, message, type = "info") {
+        if (!validTypes.includes(type)) {
+            type = "info";
+        }
+
+        let banner = document.getElementById(`notification-${id}`);
+
+        if (!banner) {
+            banner = document.createElement("div");
+            banner.id = `notification-${id}`;
+            banner.className = `notification-banner notification-${type}`;
+
+            const text = document.createElement("span");
+            text.className = "notification-text";
+
+            const closeBtn = document.createElement("button");
+            closeBtn.className = "close-btn";
+            closeBtn.innerHTML = "&times;";
+            closeBtn.onclick = () => banner.remove();
+
+            banner.appendChild(text);
+            banner.appendChild(closeBtn);
+
+            container.appendChild(banner);
+        }
+
+        banner.className = `notification-banner notification-${type}`;
+        banner.querySelector(".notification-text").textContent = message;
+
+        return banner;
+    }
+
+    function remove(id) {
+        document.getElementById(`notification-${id}`)?.remove();
+    }
+
+    function clear() {
+        container.innerHTML = "";
+    }
+
+    return {
+        addOrUpdate,
+        remove,
+        clear,
+    };
+})();
+</script>
+
+<style>
+/* Notification Banner Styles */
+.notification-banner {
+    width: 85%;
+    max-width: 850px;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 5px;
+    margin: 10px auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #333;
+    font-weight: bold;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Blue Info Banner */
+.notification-info {
+    background-color: #cddfff;
+    border: 1px solid #badeff;
+    color: #044b85;
+}
+
+/* Yellow Warning Banner */
+.notification-warning {
+    background-color: #fff3cd;
+    border: 1px solid #ffeeba;
+    color: #856404;
+}
+
+/* Red Severe Banner */
+.notification-severe {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+}
+
+/* Close Button */
+.notification-banner .close-btn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    color: inherit;
+    padding: 0;
+    box-shadow: none;
+}
+
+.notification-banner span {
+    width: 100%;
+}
+
+.notification-banner span::before {
+    margin-right: 1ch;
+}
+
+.notification-banner.notification-info span::before {
+    content: 'ℹ';
+}
+
+.notification-banner.notification-warning span::before {
+    content: '⚠️';
+}
+
+.notification-banner.notification-severe span::before {
+    content: '🚨';
+}
+
+.notification-banner .close-btn:hover {
+    opacity: 0.7;
+}
+</style>

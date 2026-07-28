@@ -1,0 +1,31 @@
+<label>
+    <input type="checkbox" name="privacyAgreement" id="privacyAgreement" required />
+    I have read and agree to the <a href="{{  site.links.privacy  }}" target="_blank" rel="noopener noreferrer">Privacy
+        Policy</a>
+</label>
+
+<label>
+    <input type="checkbox" name="sigAcknowledge" id="sigAcknowledge" required />
+    By signing below I agree, that the information I've shared is correct, and that my electronic signature is just as
+    valid as signing by hand
+</label>
+
+<p style="font-weight: bold"></p>
+
+<label>Please sign in the box below:</label>
+<canvas id="signature-pad"></canvas>
+<button type="button" onclick="clearSignature()">Clear Signature</button>
+
+<button type="submit" id="submitBtn" disabled>Agree & Submit</button>
+
+<script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
+
+<script>
+    const canvas = document.getElementById('signature-pad');
+    const signaturePad = new SignaturePad(canvas, { backgroundColor: 'rgba(255,255,255,0)' });
+
+    function clearSignature() {
+        signaturePad.clear();
+        checkConditions();
+    }
+</script>

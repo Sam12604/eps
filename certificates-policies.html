@@ -1,21 +1,166 @@
 ---
 layout: default
-title: Certificates and Policies | Erin's Pet Sitting
-description:
+title: Certificates and Policies | Erin's Pet Sitting Services
+description: View and download Erin's Pet Sitting certificates, insurance documents, and policies. Fully insured, first aid trained, and DBS checked.
 ---
 
-<!-- Downloads Section -->
-<section id="downloads" class="downloads">
-    <h2>Certificates and Policies</h2>
-    <div class="download-links">
-        <a href="/downloads/Policies.pdf"><i class="fas fa-download" style="padding-right: 10px;"></i>Terms and
-            Conditions</a>
-        <a href="/downloads/ProofOfInsurance.pdf"><i class="fas fa-download" style="padding-right: 10px;"></i>Proof
-            of Insurance</a>
-        <a href="/downloads/FirstAid.pdf"><i class="fas fa-download" style="padding-right: 10px;"></i>First Aid
-            Certificate</a>
-        <a
-            href="mailto:erinspetsittingservices@mail.com?subject=DBS Certificate Request&body=Hello,%0APlease can I request a copy of your DBS certificate?"><i
-                class="fas fa-envelope-open-text" style="padding-right: 10px;"></i>Request DBS Certificate</a>
+<!-- ─── PAGE HERO ─── -->
+<div class="certs-hero">
+    <!-- <p class="certs-hero__label">Subtitle</p> -->
+    <h1 class="certs-hero__title">Certificates <em>&amp; Policies</em></h1>
+    <p class="certs-hero__sub">Every document you need to feel confident leaving your pet in our care - fully insured,
+        first aid trained, and DBS checked.</p>
+</div>
+
+<!-- ─── DOWNLOADS SECTION ─── -->
+<section id="downloads" class="certs-section">
+
+    <div class="doc-grid">
+
+        {% for document in site.data.downloads %}
+        <div class="doc-card">
+            <div class="doc-card__body">
+                <h3 class="doc-card__name">{{ document.name }}</h3>
+                <p class="doc-card__desc">{{ document.description }}</p>
+            </div>
+
+            {% if document.type == "download" %}
+            <a href="{{ document.url | relative_url }}" class="doc-card__btn">
+                <i class="{{ document.icon }}"></i> {{ document.button }}
+            </a>
+
+            {% elsif document.type == "email" %}
+            <a href="mailto:{{ document.email }}?subject={{ document.subject | url_encode }}&body={{ document.body | url_encode }}"
+                class="doc-card__btn">
+                <i class="{{ document.icon }}"></i> {{ document.button }}
+            </a>
+            {% endif %}
+        </div>
+        {% endfor %}
+
     </div>
 </section>
+
+<style>
+    .certs-hero {
+        text-align: center;
+        padding: 64px 24px 48px;
+    }
+
+    .certs-hero__label {
+        font-family: 'DM Sans', sans-serif;
+        font-size: 0.78rem;
+        font-weight: 500;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--sage);
+        margin-bottom: 12px;
+    }
+
+    .certs-hero__title {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: clamp(2rem, 5vw, 3.2rem);
+        font-weight: 700;
+        color: var(--charcoal);
+        line-height: 1.15;
+        margin-bottom: 16px;
+    }
+
+    .certs-hero__title em {
+        font-style: italic;
+        color: var(--sage);
+    }
+
+    .certs-hero__sub {
+        font-family: 'DM Sans', sans-serif;
+        font-size: 1.05rem;
+        font-weight: 300;
+        color: #666;
+        max-width: 560px;
+        margin: 0 auto;
+        line-height: 1.7;
+    }
+
+    .doc-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 24px;
+        max-width: 1000px;
+        margin: 0 auto;
+        text-align: left;
+    }
+
+    .doc-card {
+        padding: 28px 28px 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        border: 2px solid transparent;
+        transition: var(--transition);
+    }
+
+    .doc-card__name {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--charcoal);
+        margin-bottom: 6px;
+    }
+
+    .doc-card--alt .doc-card__name {
+        color: #fff;
+    }
+
+    .doc-card__desc {
+        font-family: 'DM Sans', sans-serif;
+        font-size: 0.88rem;
+        color: #777;
+        font-weight: 300;
+        line-height: 1.6;
+        margin: 0;
+    }
+
+    .doc-card--alt .doc-card__desc {
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    .doc-card__body {
+        flex: 1;
+    }
+
+    .doc-card__btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 0.88rem;
+        font-weight: 500;
+        padding: 11px 20px;
+        border-radius: 50px;
+        text-decoration: none;
+        background: var(--cream, #f5f0e8);
+        color: var(--sage-dark);
+        border: 2px solid var(--sage-light);
+        transition: var(--transition);
+        align-self: flex-start;
+    }
+
+    .doc-card__btn:hover {
+        background: var(--sage);
+        color: #fff;
+        border-color: var(--sage);
+        transform: translateY(-1px);
+    }
+
+    .doc-card__btn--alt {
+        background: var(--gold);
+        color: #fff;
+        border-color: var(--gold);
+    }
+
+    .doc-card__btn--alt:hover {
+        background: #b8952f;
+        border-color: #b8952f;
+        color: #fff;
+    }
+</style>

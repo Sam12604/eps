@@ -1,7 +1,6 @@
 - name: Terms & Conditions
   description: >-
-    Our full service agreement covering booking terms, service policy, and
-    responsibilities for both parties including cancellations.
+    Our full service agreement covering booking terms, service policy, and responsibilities for both parties including cancellations.
   type: download
   url: /downloads/ClientAgreement.pdf
   button: Download PDF
@@ -9,8 +8,7 @@
 
 - name: Proof of Insurance
   description: >-
-    Business and Public liability insurance certificate demonstrating full
-    coverage for all our services.
+    Business and Public liability insurance certificate demonstrating full coverage for all our services.
   type: download
   url: /downloads/ProofOfInsurance.pdf
   button: Download PDF
@@ -18,8 +16,7 @@
 
 - name: First Aid Certificate
   description: >-
-    Accredited pet first aid qualification - so we're always prepared to
-    respond calmly and correctly in an emergency.
+    Accredited pet first aid qualification - so we're always prepared to respond calmly and correctly in an emergency.
   type: download
   url: /downloads/FirstAid.pdf
   button: Download PDF
@@ -27,8 +24,7 @@
 
 - name: DBS Certificate
   description: >-
-    Proof of DBS check available on request. Send us an email and we'll
-    share a copy with you promptly.
+    Proof of DBS check available on request. Send us an email and we'll share a copy with you promptly.
   type: email
   email: "erinspetsittingservices@mail.com"
   subject: DBS Certificate Request
@@ -37,3 +33,11 @@
     Please can I request a copy of your DBS certificate?
   button: Request by Email
   icon: fas fa-envelope-open-text
+
+- name: Privacy Policy
+  description: >-
+    Our full privacy policy explaining how we collect, use, store, and protect your personal information, including your rights and how we handle your data.
+  type: download
+  url: /info/privacy-policy
+  button: Open in new Tab
+  icon: fa fa-external-link

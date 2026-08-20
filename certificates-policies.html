@@ -25,7 +25,7 @@ description: View and download Erin's Pet Sitting certificates, insurance docume
             </div>
 
             {% if document.type == "download" %}
-            <a href="{{ document.url | relative_url }}" class="doc-card__btn">
+            <a href="{{ document.url | relative_url }}" class="doc-card__btn" target="_blank">
                 <i class="{{ document.icon }}"></i> {{ document.button }}
             </a>
 

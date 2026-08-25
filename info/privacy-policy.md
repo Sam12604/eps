@@ -6,8 +6,8 @@ description: Privacy Policy for Erin's Pet Sitting Services
 
 # Privacy Policy
 
-**Last Updated: August 20, 2026**  
-**Version 4, this document supersedes the revision from July 27, 2026**
+**Last Updated: August 25, 2026**  
+**Version 4.1, this document supersedes the revision from August 20, 2026**
 
 This Privacy Policy explains how Erin Benson, trading as Erin's Pet Sitting Services ("we," "us," or "our") collects, uses, stores, and protects your personal information when you use our website, erinspetsittingservices.co.uk (the "Website"), or engage with any of our services.
 
@@ -59,7 +59,7 @@ The information collected via our analytics tools (Google Analytics and Umami) i
 - To improve the Website's design, content, and user experience;
 - To monitor the effectiveness of our Website.
 
-We use the personal information you provide (name, email address, and signature) to:
+We use the personal information you provide (including but not limited to name, email address, and signature) to:
 
 - Process your requests for pet sitting services;
 - Send you confirmation emails or other communications related to your request;
@@ -130,7 +130,17 @@ We take reasonable steps to protect the data we process, but no online system is
 
 Our services are not intended for children under 16, and we do not knowingly collect personal data from them. If we become aware that a child under 16 has provided us with personal information, we will delete it as soon as possible.
 
-## 8. Your Rights
+## 8. Key Holding and Property Access
+
+Where you provide us with a key, access code, or other means of entry to your property in connection with our services, we treat this information with the same care as your other personal data. Keys are stored securely and are not labelled in any way that could identify the associated property if lost or misplaced. Access codes and similar information are stored securely and are not recorded in a way that could be linked to your address by an unauthorised person.
+
+Where an approved subcontractor is engaged to carry out services at your property, we will only provide them with access to your property where you have given your approval. Any key or access information shared with a subcontractor will be limited to what is necessary to carry out the agreed services, and we will require them to handle it securely and return it promptly once it is no longer needed.
+
+At the end of our services, or at your request, any keys held by us will be returned to you promptly. Any access codes or similar information held by us will be securely deleted once they are no longer required.
+
+Should you have any concerns about the security of your key or access information, please contact us.
+
+## 9. Your Rights
 
 Under UK data protection laws, you have the following rights regarding your personal data:
 
@@ -144,23 +154,27 @@ Under UK data protection laws, you have the following rights regarding your pers
 
 To exercise these rights, please email us at [erinspetsittingservices@mail.com](mailto:erinspetsittingservices@mail.com). We will respond within one month, as required by law. If you're unhappy with our response, you can lodge a complaint with the UK Information Commissioner's Office (ICO) at [www.ico.org.uk](https://www.ico.org.uk).
 
-## 9. Third-Party Links
+## 10. Third-Party Links
 
 Our Website may contain links to external sites (e.g., Facebook, Rover). We are not responsible for the privacy practices or content of these third-party sites.
 
-## 10. Changes to This Privacy Policy
+## 11. Changes to This Privacy Policy
 
 We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated "Last Updated" date. Previous revisions of this policy are available on request - please contact us at [erinspetsittingservices@mail.com](mailto:erinspetsittingservices@mail.com).
 
-**This revision (August 20, 2026) includes the following updates:**
+**Revision 4 (August 20, 2026) includes the following updates:**
 
 - How we share information with sub-contractors.
 - Added the deletion period for clients who no longer require services.
 - Clarified what information is provided by the client and why it is required.
 
-If we introduce new features or services, we will update this Privacy Policy to reflect those changes and how they affect your data.
+**Revision 4.1 (August 25, 2026) includes the following updates:**
 
-## 11. Contact Us
+- Added information about keyholding and access to properties.
+
+If we introduce new features or services, we will update this Privacy Policy to reflect those changes and how they affect your data. Should you wish to see previous versions of this document please use the contact email below.
+
+## 12. Contact Us
 
 If you have any questions or concerns about this Privacy Policy or how we handle your data, please contact Erin at:  
 Email: [erinspetsittingservices@mail.com](mailto:erinspetsittingservices@mail.com)  

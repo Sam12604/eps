@@ -459,6 +459,7 @@ margin-right: auto;
   gap: 8px;
   font-weight: 400;
   line-height: 1.4;
+  text-align: left;
 }
 
 .pcard--featured .pcard__features li {

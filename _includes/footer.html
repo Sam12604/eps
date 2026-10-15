@@ -1,7 +1,7 @@
 <!-- Footer -->
-<footer>
+<footer class="site-footer">
     <!-- Floating Contact Button -->
-    <button id="contactBtn" class="contact-btn">📨</button>
+    <button id="contactBtn" class="contact-btn" aria-label="Open contact form">📨</button>
 
     <!-- Floating Contact Form -->
     <div id="contactForm" class="contact-form">
@@ -15,10 +15,10 @@
             title="Get in touch!"></iframe>
         <script>var d = document, w = "https://tally.so/widgets/embed.js", v = function () { "undefined" != typeof Tally ? Tally.loadEmbeds() : d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function (e) { e.src = e.dataset.tallySrc })) }; if ("undefined" != typeof Tally) v(); else if (d.querySelector('script[src="' + w + '"]') == null) { var s = d.createElement("script"); s.src = w, s.onload = v, s.onerror = v, d.body.appendChild(s); }</script>
         <script>
-          const iframe = document.getElementById('tally-form');
-          const baseUrl = iframe.getAttribute('data-tally-src');
-          const urlWithReferrer = baseUrl + encodeURIComponent(document.referrer);
-          iframe.setAttribute('src', urlWithReferrer);
+            const iframe = document.getElementById('tally-form');
+            const baseUrl = iframe.getAttribute('data-tally-src');
+            const urlWithReferrer = baseUrl + encodeURIComponent(document.referrer);
+            iframe.setAttribute('src', urlWithReferrer);
         </script>
     </div>
     <script>
@@ -52,54 +52,165 @@
     </script>
 
     <style>
-        .footer-content {
-            display: flex;
-            gap: 10px;
-            justify-content: space-evenly;
-            align-items: center;
-            flex-direction: row;
+        .site-footer {
+            background-color: var(--sage-dark, #4a5c45);
+            color: #fff;
+            padding: 48px 24px 0;
+            font-family: 'Poppins', sans-serif;
         }
 
+        .site-footer__inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 36px 60px;
+            padding-bottom: 36px;
+        }
+
+        .site-footer__brand {
+            flex: 1 1 240px;
+        }
+
+        .site-footer__name {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .site-footer__social {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .site-footer__social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            color: #fff;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .site-footer__social a:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+            border-color: #fff;
+            color: #fff;
+        }
+
+        .site-footer__col {
+            flex: 0 1 160px;
+        }
+
+        .site-footer__heading {
+            font-size: 0.78rem;
+            font-weight: 500;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--sage-light, #a4b89d);
+            margin-bottom: 14px;
+        }
+
+        .site-footer__col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .site-footer__col a {
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .site-footer__col a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        .site-footer__bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.18);
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px 0 28px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px 24px;
+            font-size: 0.8rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        .site-footer__scheme {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .site-footer__scheme img {
+            height: 26px;
+            width: auto;
+        }
+
+        /* keep the bottom of the footer clear of the floating contact button */
         @media (max-width: 1000px) {
-            .footer-content {
-                padding-bottom: 80px;
+            .site-footer__bottom {
+                padding-bottom: 90px;
             }
         }
 
-        @media (max-width: 800px) {
-            .footer-content {
-                flex-direction: column;
+        @media (max-width: 600px) {
+            .site-footer {
+                padding-top: 36px;
+            }
+
+            .site-footer__col {
+                flex: 1 1 40%;
             }
         }
     </style>
-    <div class="footer-content">
-        <div>
-            <p>Erin's Pet Sitting Services<br>Gravesend, Kent</p>
 
-            <div class="social-links">
-                <a href="https://www.facebook.com/people/Erins-Pet-Sitting-Services/61560319745772"
-                    aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                <a href="https://www.instagram.com/ErinsPetSittingServicesKent" aria-label="Instagram"><i
-                        class="fab fa-instagram"></i></a>
-                <a href="https://m.me/61560319745772" aria-label="Messenger"><i
-                        class="fab fa-facebook-messenger"></i></a>
-                <a href="https://wa.me/447466159400" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                <a href="tel:07466159400" aria-label="Phone"><i class="fa-solid fa-phone"></i></a>
+    <div class="site-footer__inner">
+        <div class="site-footer__brand">
+            <p class="site-footer__name">Erin's Pet Sitting Services</p>
+            <div class="site-footer__social">
+                <a href="{{ site.author.facebook }}" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="{{ site.author.instagram }}" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="{{ site.author.messenger }}" aria-label="Messenger"><i class="fab fa-facebook-messenger"></i></a>
+                <a href="{{ site.author.whatsapp }}" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="tel:{{ site.author.tel }}" aria-label="Phone"><i class="fa-solid fa-phone"></i></a>
             </div>
-
-
-
-            <p style="font-size: 12px; color: #3d3d3dab;">&copy; 2026 Erin's Pet Sitting. All rights reserved.<br>
-                <a href="/downloads/PrivacyPolicy.pdf"
-                    style="font-size: 12px; color: #3d3d3dab; text-decoration: none;">Privacy Policy</a><br>
-            </p>
         </div>
-        <!-- <div>
-            <p>Subscribe to monthly updates</p>
-            <input type="tel" placeholder="07123456789">
-            <button type="submit">Sign up</button>
-            <p style="font-size: 10px; color: #3d3d3dab;">By clicking signup you agree to the Privacy Policy</p>
-        </div> -->
+
+        {% for column in site.data.footer_nav.footer_columns %}
+        <nav class="site-footer__col" aria-label="{{ column.title }}">
+            <h2 class="site-footer__heading">{{ column.title }}</h2>
+            <ul>
+                {% for link in column.links %}
+                <li><a href="{{ link.href }}">{{ link.label }}</a></li>
+                {% endfor %}
+            </ul>
+        </nav>
+        {% endfor %}
     </div>
+
+    <div class="site-footer__bottom">
+        <p>&copy; {{ 'now' | date: '%Y' }} Erin's Pet Sitting Services. All rights reserved.</p>
+    </div>
+
     <script src="/script.js"></script>
 </footer>

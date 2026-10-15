@@ -1,0 +1,9 @@
+footer_columns:
+  - title: More
+    links:
+      - label: Leave a Review on Google
+        href: "https://g.page/r/CYOEYpNhgVlvEBM/review"
+      - label: Privacy Policy
+        href: "/info/privacy-policy"
+      - label: Client Agreement
+        href: "/downloads/ClientAgreement.pdf"

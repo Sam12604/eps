@@ -162,7 +162,7 @@
         }
 
         .site-footer__scheme img {
-            height: 26px;
+            height: 32px;
             width: auto;
         }
 
@@ -190,7 +190,8 @@
             <div class="site-footer__social">
                 <a href="{{ site.author.facebook }}" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
                 <a href="{{ site.author.instagram }}" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="{{ site.author.messenger }}" aria-label="Messenger"><i class="fab fa-facebook-messenger"></i></a>
+                <a href="{{ site.author.messenger }}" aria-label="Messenger"><i
+                        class="fab fa-facebook-messenger"></i></a>
                 <a href="{{ site.author.whatsapp }}" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 <a href="tel:{{ site.author.tel }}" aria-label="Phone"><i class="fa-solid fa-phone"></i></a>
             </div>
@@ -210,6 +211,12 @@
 
     <div class="site-footer__bottom">
         <p>&copy; {{ 'now' | date: '%Y' }} Erin's Pet Sitting Services. All rights reserved.</p>
+        <p class="site-footer__scheme">
+            <img src="/media/maidstone-logo.webp" alt="Maidstone Borough Council logo">
+            <a href="https://maidstone.gov.uk/home/other-services/environmental-health/animals-and-pests/professional-dog-walking-scheme" style="color: inherit; text-decoration: none;" target="_blank">
+                Member of Maidstone Borough Council's Professional Dog Walkers Scheme
+            </a>
+        </p>
     </div>
 
     <script src="/script.js"></script>
